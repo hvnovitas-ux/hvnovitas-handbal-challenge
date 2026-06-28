@@ -1,0 +1,9 @@
+body{margin:0;background:linear-gradient(#111,#222);font-family:Arial;color:#fff}
+.wrap{max-width:760px;margin:40px auto;background:#1b1b1b;padding:25px;border-radius:14px;border:3px solid #ff7a00}
+h1{color:#ff7a00}.sub{color:#ddd}
+.bar{height:10px;background:#333;border-radius:8px;margin:20px 0}
+#fill{height:10px;background:#ff7a00;width:0%;border-radius:8px}
+label{display:block;padding:10px;margin:8px 0;background:#2a2a2a;border-radius:8px;cursor:pointer}
+button{background:#ff7a00;color:white;border:none;padding:12px 22px;border-radius:8px;font-size:16px;cursor:pointer}
+button:hover{background:#ff9500}
+#result{font-size:22px;font-weight:bold;margin-top:20px}
