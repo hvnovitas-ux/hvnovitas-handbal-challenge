@@ -1,70 +1,133 @@
- HV NOVITAS HANDBAL
-CHALLENGE // script.js (verbeterde basis) //
-========================================
+```html
+<!DOCTYPE html>
+<html lang="nl">
 
-const questions = [ {q:“Hoeveel spelers staan er per team in het
-veld?”,a:[“5”,“6”,“7”,“8”],c:2}, {q:“Welke kleur draagt HV
-Novitas?”,a:[“Blauw”,“Groen”,“Oranje”,“Rood”],c:2}, {q:“Waar speelt HV
-Novitas?”,a:[“Hulst”,“Goes”,“Middelburg”,“Terneuzen”],c:0}, {q:“Wat is
-de slogan van HV Novitas?”,a:[“No Stress, Enjoy!”,“Play Hard”,“Orange
-Power”,“Handball Forever”],c:0}];
+<head>
 
-let current=0; let score=0;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const startScreen=document.getElementById(“startScreen”); const
-game=document.getElementById(“game”); const
-finishScreen=document.getElementById(“finishScreen”); const
-leaderboard=document.getElementById(“leaderboard”);
+<title>🧡 HV Novitas Handbal Challenge</title>
 
-const quiz=document.getElementById(“quiz”); const
-status=document.getElementById(“status”); const
-vraagnummer=document.getElementById(“vraagnummer”); const
-fill=document.getElementById(“fill”);
+<link rel="stylesheet" href="style.css">
 
-document.getElementById(“startButton”).onclick=()=>{
-startScreen.style.display=“none”; game.style.display=“block”;
-showQuestion(); };
+</head>
 
-function showQuestion(){ const q=questions[current];
-status.textContent=“🏆 Score:”+score;
-vraagnummer.textContent=“Vraag”+(current+1)+” / “+questions.length;
-fill.style.width=((current/questions.length)*100)+“%”; quiz.innerHTML=“
-“+q.q+”
-“+q.a.map((a,i)=>” “+a+”” ).join(““); }
+<body>
 
-document.getElementById(“next”).onclick=()=>{ const
-gekozen=document.querySelector(“input[name=‘antwoord’]:checked”);
-if(!gekozen){ alert(“Kies eerst een antwoord.”); return; }
-if(Number(gekozen.value)===questions[current].c) score++; current++;
-if(current<questions.length){ showQuestion(); }else{ eindeQuiz(); } };
+<div class="wrap">
 
-function eindeQuiz(){ game.style.display=“none”;
-finishScreen.style.display=“block”;
-document.getElementById(“finalScore”).innerHTML= “
-🏆 Je score
-“+score+” / “+questions.length+”
-🧡 No Stress, Enjoy!
-“; }
+    <!-- STARTSCHERM -->
 
-const saveButton=document.getElementById(“saveScore”); if(saveButton){
-saveButton.onclick=()=>{ const
-naam=document.getElementById(“playerName”).value.trim(); if(!naam){
-alert(“Vul eerst je naam in.”); return; } alert(“Score van”+naam+” wordt
-later opgeslagen in Firebase.”); finishScreen.style.display=“none”;
-leaderboard.style.display=“block”; laadRanglijst(); }; }
+    <div id="startScreen" class="center">
 
-const showLeaderboard=document.getElementById(“showLeaderboard”);
-if(showLeaderboard){ showLeaderboard.onclick=()=>{
-startScreen.style.display=“none”; leaderboard.style.display=“block”;
-laadRanglijst(); }; }
+        <h1>🧡 HV NOVITAS</h1>
 
-const backHome=document.getElementById(“backHome”); if(backHome){
-backHome.onclick=()=>{ leaderboard.style.display=“none”;
-finishScreen.style.display=“none”; game.style.display=“none”;
-startScreen.style.display=“block”; }; }
+        <h2>HANDBAL CHALLENGE</h2>
 
-function laadRanglijst(){
-document.getElementById(“leaderboardList”).innerHTML= “
-🏆 Maandranglijst
-🌍 Firebase-koppeling volgt in de volgende stap.
-“; }
+        <p>Test jouw handbalkennis!</p>
+
+        <p>
+            🏆 30 vragen<br>
+            ⭐ Beginner • Gemiddeld • Expert
+        </p>
+
+        <h3>🧡 No Stress, Enjoy!</h3>
+
+        <button id="startButton">
+            ▶ START DE QUIZ
+        </button>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div id="game" style="display:none;">
+
+        <div class="topbar">
+
+            <div id="status">
+                🏆 Score: 0
+            </div>
+
+            <div id="vraagnummer">
+                Vraag 1 / 30
+            </div>
+
+        </div>
+
+        <div class="bar">
+
+            <div id="fill"></div>
+
+        </div>
+
+        <div id="quiz"></div>
+
+        <br>
+
+        <button id="next">
+
+            Volgende →
+
+        </button>
+
+    </div>
+
+
+    <!-- EINDSCHERM -->
+
+    <div id="finishScreen" style="display:none;">
+
+        <div id="finalScore"></div>
+
+        <br>
+
+        <input
+            id="playerName"
+            type="text"
+            placeholder="Jouw naam">
+
+        <br><br>
+
+        <button id="saveScore">
+
+            💾 Score opslaan
+
+        </button>
+
+        <br><br>
+
+        <button id="backHome">
+
+            🏠 Terug naar start
+
+        </button>
+
+    </div>
+
+
+    <!-- MAANDRANGLIJST -->
+
+    <div id="leaderboard" style="display:none;">
+
+        <h1>🏆 Maandranglijst</h1>
+
+        <div id="leaderboardList">
+
+            Nog geen scores.
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
+```
