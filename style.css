@@ -1,193 +1,41 @@
-```css
-/* ============================
-   HV NOVITAS HANDBAL CHALLENGE
-   Versie 1.2
-============================ */
+#message{
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    height:70px;
 
-body{
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-    radial-gradient(circle at top,#444,#111);
-
-    color:white;
-
-    min-height:100vh;
-
-    padding:30px;
-
-}
-
-.wrap{
-
-    max-width:900px;
-
-    margin:auto;
-
-    background:#1b1b1b;
-
-    border:3px solid #ff7a00;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    box-shadow:
-    0 0 30px rgba(255,122,0,.35);
-
-}
-
-.center{
-
-    text-align:center;
-
-}
-
-h1{
-
-    color:#ff7a00;
-
-    font-size:42px;
-
-    margin-bottom:15px;
-
-    text-shadow:
-    0 0 15px rgba(255,122,0,.6);
-
-}
-
-h2{
-
-    margin-bottom:20px;
-
-}
-
-p{
-
-    line-height:1.6;
-
-    margin-bottom:20px;
-
-}
-
-button{
-
-    background:#ff7a00;
-
-    color:white;
-
-    border:none;
-
-    padding:16px 35px;
+    margin:20px 0;
 
     border-radius:12px;
 
-    font-size:20px;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
 
     font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-button:hover{
-
-    background:#ff9800;
-
-    transform:scale(1.05);
-
-    box-shadow:
-    0 0 20px rgba(255,140,0,.7);
-
-}
-
-.bar{
-
-    height:18px;
-
-    background:#333;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    margin:25px 0;
-
-}
-
-#fill{
-
-    height:18px;
-
-    width:0;
-
-    background:linear-gradient(90deg,#ff7a00,#ffbf00);
 
     transition:.4s;
 
 }
 
-label{
+.goal{
 
-    display:block;
+    background:#178c30;
 
-    background:#2a2a2a;
+    color:white;
 
-    border:2px solid #333;
-
-    border-radius:12px;
-
-    padding:15px;
-
-    margin:12px 0;
-
-    cursor:pointer;
-
-    transition:.25s;
+    box-shadow:0 0 20px #0f0;
 
 }
 
-label:hover{
+.fail{
 
-    border-color:#ff7a00;
+    background:#b00020;
 
-    background:#343434;
+    color:white;
 
-    transform:translateX(6px);
-
-}
-
-input[type=radio]{
-
-    margin-right:10px;
+    box-shadow:0 0 20px red;
 
 }
-
-#result{
-
-    text-align:center;
-
-    font-size:24px;
-
-    margin-top:25px;
-
-}
-
-#startButton{
-
-    font-size:24px;
-
-    padding:18px 40px;
-
-}
-```
