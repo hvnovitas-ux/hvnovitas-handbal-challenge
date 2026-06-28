@@ -60,8 +60,6 @@ window.loadLeaderboard = function() {
 
       data.forEach((p, i) => { html += ` <tr> <td>${i + 1}</td> <td>${p.name}</td> <td>${p.score}</td> </tr>`; });
 
-        });
-
         html+="</table>";
 
         lijst.innerHTML=html;
