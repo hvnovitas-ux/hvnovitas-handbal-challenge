@@ -1,106 +1,102 @@
+```javascript
 const questions = [
-{q:"Hoeveel spelers staan er per team in het veld?",a:["5","6","7","8"],c:2},
-{q:"Hoeveel stappen zonder stuiten?",a:["2","3","4","5"],c:1},
-{q:"Strafworp vanaf?",a:["6 m","7 m","9 m","10 m"],c:1},
-{q:"Tijdstraf duurt?",a:["1","2","3","5"],c:1},
-{q:"Kleur HV Novitas?",a:["Blauw","Groen","Oranje","Rood"],c:2},
-{q:"Waar speelt HV Novitas?",a:["Hulst","Goes","Middelburg","Terneuzen"],c:0},
-{q:"Wie verdedigt het doel?",a:["Keeper","Coach","Hoek","Cirkel"],c:0},
-{q:"Speelduur senioren?",a:["2x20","2x25","2x30","2x35"],c:2},
-{q:"Aantal team time-outs?",a:["1","2","3","4"],c:2},
-{q:"Slogan HV Novitas?",a:["No Stress, Enjoy!","Play Hard","Orange Power","Handball Forever"],c:0},
-{q:"Welke lijn is gestippeld?",a:["6 m","7 m","9 m","Middenlijn"],c:2},
-{q:"Mag een keeper scoren?",a:["Ja","Nee","Alleen strafworp","Alleen laatste minuut"],c:0},
-{q:"Hoeveel punten voor winst?",a:["1","2","3","0"],c:1},
-{q:"Welke bal gebruikt heren?",a:["Maat 1","Maat 2","Maat 3","Maat 4"],c:2},
-{q:"Welke sport is HV Novitas?",a:["Volleybal","Handbal","Basketbal","Korfbal"],c:1}
+{
+    q: "Hoeveel spelers staan er per team in het veld?",
+    a: ["5","6","7","8"],
+    c: 2
+},
+{
+    q: "Welke kleur draagt HV Novitas?",
+    a: ["Blauw","Groen","Oranje","Rood"],
+    c: 2
+},
+{
+    q: "Waar speelt HV Novitas?",
+    a: ["Terneuzen","Hulst","Goes","Middelburg"],
+    c: 1
+},
+{
+    q: "Hoeveel stappen mag je zetten zonder te stuiten?",
+    a: ["2","3","4","5"],
+    c: 1
+},
+{
+    q: "Wat is de slogan van HV Novitas?",
+    a: ["No Stress, Enjoy!","Play Hard","Orange Power","Handball Forever"],
+    c: 0
+}
 ];
 
-let i = 0;
+let current = 0;
 let score = 0;
 
 const quiz = document.getElementById("quiz");
-const result = document.getElementById("result");
-const fill = document.getElementById("fill");
 const status = document.getElementById("status");
+const vraagnummer = document.getElementById("vraagnummer");
+const fill = document.getElementById("fill");
+const result = document.getElementById("result");
+const next = document.getElementById("next");
 
-function render(){
+document.getElementById("startButton").onclick = function () {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("game").style.display = "block";
+    showQuestion();
+};
 
-    const q = questions[i];
+function showQuestion(){
 
-    fill.style.width = (i / questions.length * 100) + "%";
+    const q = questions[current];
 
-    status.innerHTML =
-    `🏆 Score: ${score} | Vraag ${i+1} van ${questions.length}`;
+    status.innerHTML = "🏆 Score: " + score;
+
+    vraagnummer.innerHTML =
+        "Vraag " + (current+1) + " / " + questions.length;
+
+    fill.style.width =
+        ((current/questions.length)*100) + "%";
 
     quiz.innerHTML =
-    `<h2>${q.q}</h2>` +
-    q.a.map((x,n)=>
-    `<label><input type="radio" name="r" value="${n}"> ${x}</label>`
-    ).join("");
+        "<h2>"+q.q+"</h2>" +
+        q.a.map((antwoord,index)=>
+        "<label><input type='radio' name='antwoord' value='"+index+"'> "+antwoord+"</label>"
+        ).join("");
 
 }
 
-document.getElementById("startButton").onclick = function(){
+next.onclick = function(){
 
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("game").style.display = "block";
-
-    render();
-
-};
-
-document.getElementById("next").onclick = function(){
-
-    let gekozen = document.querySelector("input[name='r']:checked");
+    const gekozen =
+        document.querySelector("input[name='antwoord']:checked");
 
     if(!gekozen){
-
-        alert("Kies een antwoord.");
-
+        alert("Kies eerst een antwoord.");
         return;
-
     }
 
-    if(Number(gekozen.value) === questions[i].c){
-
+    if(Number(gekozen.value)===questions[current].c){
         score++;
-
     }
 
-    i++;
+    current++;
 
-    if(i < questions.length){
+    if(current<questions.length){
 
-        render();
+        showQuestion();
 
-        return;
+    }else{
+
+        fill.style.width="100%";
+
+        quiz.innerHTML="";
+
+        result.innerHTML=
+        "<h1>🏆 Klaar!</h1>"+
+        "<h2>Score: "+score+" / "+questions.length+"</h2>"+
+        "<br><h2>🧡 No Stress, Enjoy!</h2>";
+
+        next.style.display="none";
 
     }
-
-    fill.style.width = "100%";
-
-    let procent = Math.round(score / questions.length * 100);
-
-    let rang = "🥉 Rookie";
-
-    if(score >= 13) rang = "👑 Handbal Master";
-    else if(score >= 10) rang = "🥇 Expert";
-    else if(score >= 7) rang = "🥈 Talent";
-
-    quiz.innerHTML = "";
-
-    result.innerHTML = `
-        <h1>🏆 Gefeliciteerd!</h1>
-        <h2>${score} / ${questions.length}</h2>
-        <h3>${procent}% goed</h3>
-        <h2>${rang}</h2>
-        <p>🧡 <b>No Stress, Enjoy!</b></p>
-        <button onclick="location.reload()">
-            🔄 Speel opnieuw
-        </button>
-    `;
-
-    document.getElementById("next").style.display = "none";
 
 };
+```
