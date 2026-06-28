@@ -1,4 +1,4 @@
-```javascript
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import {
     getDatabase,
@@ -11,39 +11,34 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyBCUZeWMIxIz__7TfNG_b0V47H_pYFPyQ",
+    apiKey: "JOUW_API_KEY",
     authDomain: "hv-novitas-handbal-challenge.firebaseapp.com",
     databaseURL: "https://hv-novitas-handbal-challenge-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "hv-novitas-handbal-challenge",
     storageBucket: "hv-novitas-handbal-challenge.firebasestorage.app",
     messagingSenderId: "707710141199",
-    appId: "1:707710141199:web:ba304ce4e5f653d0afb47a"
-
+    appId: "JOUW_APP_ID"
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getDatabase(app);
 
-window.saveOnlineScore = function(name,score){
+window.saveScore = function(name, score) {
 
-    push(ref(db,"scores"),{
-
-        name:name,
-        score:score,
-        month:new Date().toISOString().substring(0,7),
-        date:Date.now()
-
+    push(ref(db, "scores"), {
+        name: name,
+        score: score,
+        month: new Date().toISOString().slice(0,7),
+        created: Date.now()
     });
 
-}
+};
 
-window.loadLeaderboard=function(){
+window.loadLeaderboard = function() {
 
-    const lijst=document.getElementById("leaderboardList");
+    const lijst = document.getElementById("leaderboardList");
 
-    const q=query(
+    const q = query(
         ref(db,"scores"),
         orderByChild("score"),
         limitToLast(10)
@@ -51,29 +46,24 @@ window.loadLeaderboard=function(){
 
     onValue(q,(snapshot)=>{
 
-        let html="<h2>🏆 Maandranglijst</h2>";
-
         let data=[];
 
         snapshot.forEach(item=>{
-
             data.push(item.val());
-
         });
 
         data.sort((a,b)=>b.score-a.score);
 
-        html+="<table>";
-
+        let html="<table>";
         html+="<tr><th>#</th><th>Naam</th><th>Score</th></tr>";
 
-        data.forEach((s,i)=>{
+        data.forEach((p,i)=>{
 
             html+=`
             <tr>
                 <td>${i+1}</td>
-                <td>${s.name}</td>
-                <td>${s.score}</td>
+                <td>${p.name}</td>
+                <td>${p.score}</td>
             </tr>
             `;
 
@@ -87,5 +77,3 @@ window.loadLeaderboard=function(){
 
 }
 
-console.log("🔥 Firebase verbonden");
-```
