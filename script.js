@@ -1,4 +1,3 @@
-```javascript
 let current = 0;
 let score = 0;
 
@@ -65,4 +64,3 @@ document.getElementById("next").onclick = () => {
         <h3>🧡 No Stress, Enjoy!</h3>
     `;
 };
-```
