@@ -84,7 +84,12 @@ document.getElementById("saveScore").onclick = function () {
 
     saveOnlineScore(naam, score);
 
+
+@@ -87,7 +87,6 @@ document.getElementById("saveScore").onclick = function () {
     alert("🏆 Score opgeslagen!");
+
+};
+```javascript
 // ==========================
 // MAANDRANGLIJST
 // ==========================
