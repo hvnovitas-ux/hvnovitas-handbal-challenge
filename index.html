@@ -1,59 +1,113 @@
 ```html
-<div id="startScreen" class="center">
+<!DOCTYPE html>
+<html lang="nl">
 
-    <h1>🧡 HV NOVITAS</h1>
+<head>
 
-    <h2>HANDBAL CHALLENGE</h2>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div style="
-        background:#262626;
-        border:2px solid #ff7a00;
-        border-radius:15px;
-        padding:25px;
-        margin:25px auto;
-        max-width:650px;">
+<title>🧡 HV Novitas Handbal Challenge</title>
 
-        <h3 style="color:#ff9800;font-size:28px;">
-            🤾 Durf jij de uitdaging aan?
-        </h3>
+<link rel="stylesheet" href="style.css">
 
-        <p style="font-size:22px;margin-top:20px;">
+</head>
 
-            🏆 15 uitdagende handbalvragen
+<body>
 
-            <br><br>
+<div class="wrap">
 
-            ⭐ Verdien jouw medaille
+    <!-- STARTSCHERM -->
 
-            <br><br>
+    <div id="startScreen" class="center">
 
-            👑 Word HV Novitas Handbal Master
+        <h1>🧡 HV NOVITAS</h1>
 
-        </p>
+        <h2>HANDBAL CHALLENGE</h2>
 
-        <hr style="margin:25px 0;border:1px solid #444;">
+        <div class="intro">
 
-        <h2 style="color:#ff9800;">
+            <h3>🤾 Durf jij de uitdaging aan?</h3>
 
-            🧡 No Stress, Enjoy!
+            <p>
 
-        </h2>
+                Test jouw kennis van handbal.
+
+                <br><br>
+
+                🏆 15 uitdagende vragen
+
+                <br>
+
+                ⭐ Verdien jouw medaille
+
+                <br>
+
+                👑 Word HV Novitas Handbal Master
+
+            </p>
+
+            <h2 style="color:#ff9800;">
+
+                🧡 No Stress, Enjoy!
+
+            </h2>
+
+        </div>
+
+        <button id="startButton">
+
+            ▶ START DE QUIZ
+
+        </button>
+
+        <br><br>
+
+        <small>
+
+            © HV Novitas - Hulst
+
+        </small>
 
     </div>
 
-    <button id="startButton">
+    <!-- QUIZ -->
 
-        ▶ START DE QUIZ
+    <div id="game" style="display:none;">
 
-    </button>
+        <h2 id="status">
 
-    <br><br>
+            🏆 Score: 0
 
-    <small>
+        </h2>
 
-        © HV Novitas - Hulst
+        <div id="message"></div>
 
-    </small>
+        <div class="bar">
+
+            <div id="fill"></div>
+
+        </div>
+
+        <div id="quiz"></div>
+
+        <br>
+
+        <button id="next">
+
+            Volgende →
+
+        </button>
+
+        <div id="result"></div>
+
+    </div>
 
 </div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
 ```
