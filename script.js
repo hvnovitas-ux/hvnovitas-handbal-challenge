@@ -64,7 +64,6 @@ document.getElementById("next").onclick = () => {
         <h3>🧡 No Stress, Enjoy!</h3>
     `;
 };
-```javascript
 // ==========================
 // SCORE OPSLAAN
 // ==========================
