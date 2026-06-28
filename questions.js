@@ -1,4 +1,4 @@
-```javascript
+
 const questions = [
     {
         q: "Hoeveel spelers staan er per team in het veld?",
@@ -51,4 +51,3 @@ const questions = [
         c: 0
     }
 ];
-```
