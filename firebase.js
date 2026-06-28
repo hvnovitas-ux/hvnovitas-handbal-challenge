@@ -58,15 +58,7 @@ window.loadLeaderboard = function() {
         html+="<table>";
         html+="<tr><th>#</th><th>Naam</th><th>Score</th></tr>";
 
-        data.forEach((p,i)=>{
-
-            html+=`
-            <tr>
-                <td>${i+1}</td>
-                <td>${p.name}</td>
-                <td>${p.score}</td>
-            </tr>
-            `;
+      data.forEach((p, i) => { html += ` <tr> <td>${i + 1}</td> <td>${p.name}</td> <td>${p.score}</td> </tr>`; });
 
         });
 
