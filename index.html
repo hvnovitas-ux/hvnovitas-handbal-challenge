@@ -6,15 +6,50 @@
 <title>HV Novitas Handbal Challenge</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div class="wrap">
-<h1>🧡 HV Novitas Handbal Challenge</h1>
-<p class="sub">No Stress, Just Handball!</p>
-<div class="bar"><div id="fill"></div></div>
-<div id="quiz"></div>
-<button id="next">Volgende</button>
-<div id="result"></div>
+
+    <!-- STARTSCHERM -->
+    <div id="startScreen">
+
+        <h1>🧡 HV Novitas Handbal Challenge</h1>
+
+        <h2>🤾 Durf jij de uitdaging aan?</h2>
+
+        <p class="sub">
+            Test jouw handbalkennis!<br><br>
+            Beantwoord alle vragen en ontdek of jij een echte
+            <b>HV Novitas Handbal Master</b> bent.
+        </p>
+
+        <button id="startButton">
+            ▶️ START DE QUIZ
+        </button>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div id="game" style="display:none;">
+
+        <div class="bar">
+            <div id="fill"></div>
+        </div>
+
+        <div id="quiz"></div>
+
+        <button id="next">
+            Volgende
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
 </div>
+
 <script src="script.js"></script>
+
 </body>
 </html>
