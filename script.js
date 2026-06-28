@@ -87,7 +87,6 @@ document.getElementById("saveScore").onclick = function () {
     alert("🏆 Score opgeslagen!");
 
 };
-```javascript
 // ==========================
 // MAANDRANGLIJST
 // ==========================
