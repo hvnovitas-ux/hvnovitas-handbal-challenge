@@ -64,3 +64,28 @@ document.getElementById("next").onclick = () => {
         <h3>🧡 No Stress, Enjoy!</h3>
     `;
 };
+```javascript
+// ==========================
+// SCORE OPSLAAN
+// ==========================
+
+document.getElementById("saveScore").onclick = function () {
+
+    const naam = document.getElementById("playerName").value.trim();
+
+    if (naam === "") {
+        alert("Vul eerst je naam in.");
+        return;
+    }
+
+    if (typeof saveOnlineScore !== "function") {
+        alert("Firebase is nog niet verbonden.");
+        return;
+    }
+
+    saveOnlineScore(naam, score);
+
+    alert("🏆 Score opgeslagen!");
+
+};
+```
