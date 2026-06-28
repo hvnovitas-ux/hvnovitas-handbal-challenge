@@ -1,9 +1,5 @@
-body{margin:0;background:linear-gradient(#111,#222);font-family:Arial;color:#fff}
-.wrap{max-width:760px;margin:40px auto;background:#1b1b1b;padding:25px;border-radius:14px;border:3px solid #ff7a00}
-h1{color:#ff7a00}.sub{color:#ddd}
-.bar{height:10px;background:#333;border-radius:8px;margin:20px 0}
-#fill{height:10px;background:#ff7a00;width:0%;border-radius:8px}
-label{display:block;padding:10px;margin:8px 0;background:#2a2a2a;border-radius:8px;cursor:pointer}
-button{background:#ff7a00;color:white;border:none;padding:12px 22px;border-radius:8px;font-size:16px;cursor:pointer}
-button:hover{background:#ff9500}
-#result{font-size:22px;font-weight:bold;margin-top:20px}
+body{margin:0;font-family:Arial;background:linear-gradient(#111,#333);color:#fff}
+.wrap{max-width:850px;margin:30px auto;padding:30px;background:#1c1c1c;border:3px solid #ff7a00;border-radius:16px}
+.center{text-align:center}h1{color:#ff7a00}button{background:#ff7a00;color:#fff;border:none;padding:14px 28px;border-radius:8px;font-size:20px;cursor:pointer}
+.bar{height:12px;background:#333;border-radius:8px;margin:20px 0}#fill{height:12px;background:#ff7a00;width:0%}
+label{display:block;background:#2a2a2a;padding:10px;margin:8px 0;border-radius:8px;cursor:pointer}
