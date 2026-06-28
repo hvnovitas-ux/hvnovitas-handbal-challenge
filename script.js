@@ -87,3 +87,58 @@ document.getElementById("saveScore").onclick = function () {
     alert("🏆 Score opgeslagen!");
 
 };
+```javascript
+// ==========================
+// MAANDRANGLIJST
+// ==========================
+
+document.getElementById("showLeaderboard").onclick = function () {
+
+    startScreen.style.display = "none";
+    leaderboard.style.display = "block";
+
+    if (typeof loadLeaderboard === "function") {
+        loadLeaderboard();
+    }
+
+};
+
+const showLeaderboard2 = document.getElementById("showLeaderboard2");
+
+if (showLeaderboard2) {
+
+    showLeaderboard2.onclick = function () {
+
+        finishScreen.style.display = "none";
+        leaderboard.style.display = "block";
+
+        if (typeof loadLeaderboard === "function") {
+            loadLeaderboard();
+        }
+
+    };
+
+}
+
+document.getElementById("backHome").onclick = function () {
+
+    leaderboard.style.display = "none";
+    finishScreen.style.display = "none";
+    game.style.display = "none";
+    startScreen.style.display = "block";
+
+};
+
+const backHome2 = document.getElementById("backHome2");
+
+if (backHome2) {
+
+    backHome2.onclick = function () {
+
+        leaderboard.style.display = "none";
+        startScreen.style.display = "block";
+
+    };
+
+}
+```
