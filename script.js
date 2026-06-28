@@ -85,8 +85,6 @@ document.getElementById("saveScore").onclick = function () {
     saveOnlineScore(naam, score);
 
     alert("🏆 Score opgeslagen!");
-
-};
 // ==========================
 // MAANDRANGLIJST
 // ==========================
