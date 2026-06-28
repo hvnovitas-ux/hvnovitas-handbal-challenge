@@ -1,8 +1,7 @@
 ```css
-/* =======================================
+/* ==========================
    HV NOVITAS HANDBAL CHALLENGE
-   Versie 1.0
-======================================= */
+========================== */
 
 *{
     margin:0;
@@ -14,9 +13,9 @@ body{
 
     font-family:Arial,Helvetica,sans-serif;
 
-    background:linear-gradient(180deg,#111,#2a2a2a);
+    background:linear-gradient(180deg,#111,#2d2d2d);
 
-    color:white;
+    color:#fff;
 
     min-height:100vh;
 
@@ -30,7 +29,7 @@ body{
 
     margin:auto;
 
-    background:#1d1d1d;
+    background:#1f1f1f;
 
     border:3px solid #ff7a00;
 
@@ -52,15 +51,15 @@ h1{
 
     color:#ff7a00;
 
-    font-size:46px;
+    font-size:48px;
 
-    margin-bottom:10px;
+    margin-bottom:15px;
 
 }
 
 h2{
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
 }
 
@@ -68,21 +67,7 @@ h3{
 
     color:#ff9800;
 
-    margin-bottom:15px;
-
-}
-
-.intro{
-
-    background:#292929;
-
-    border:2px solid #444;
-
-    border-radius:15px;
-
-    padding:25px;
-
-    margin:30px 0;
+    margin-bottom:20px;
 
 }
 
@@ -93,34 +78,6 @@ p{
     line-height:1.6;
 
     margin-bottom:20px;
-
-}
-
-button{
-
-    background:#ff7a00;
-
-    color:white;
-
-    border:none;
-
-    padding:16px 40px;
-
-    border-radius:12px;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-button:hover{
-
-    background:#ff9800;
-
-    transform:scale(1.05);
 
 }
 
@@ -142,11 +99,13 @@ button:hover{
 
 .bar{
 
+    width:100%;
+
     height:18px;
 
-    background:#333;
+    background:#444;
 
-    border-radius:20px;
+    border-radius:30px;
 
     overflow:hidden;
 
@@ -166,24 +125,6 @@ button:hover{
 
 }
 
-#message{
-
-    min-height:60px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    margin-bottom:20px;
-
-}
-
 #quiz{
 
     margin-top:20px;
@@ -194,7 +135,7 @@ label{
 
     display:block;
 
-    background:#303030;
+    background:#2d2d2d;
 
     border:2px solid #444;
 
@@ -202,19 +143,19 @@ label{
 
     padding:15px;
 
-    margin:10px 0;
+    margin:12px 0;
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:.25s;
 
 }
 
 label:hover{
 
-    border-color:#ff7a00;
+    background:#3b3b3b;
 
-    background:#3a3a3a;
+    border-color:#ff7a00;
 
 }
 
@@ -224,13 +165,105 @@ input[type=radio]{
 
 }
 
-#result{
+input[type=text]{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+}
+
+button{
+
+    background:#ff7a00;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#ff9800;
+
+    transform:scale(1.04);
+
+}
+
+#finishScreen{
 
     text-align:center;
 
-    margin-top:30px;
+}
 
-    font-size:26px;
+#leaderboard{
+
+    text-align:center;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+}
+
+td,th{
+
+    padding:12px;
+
+    border-bottom:1px solid #444;
+
+}
+
+th{
+
+    color:#ff9800;
+
+}
+
+@media(max-width:700px){
+
+.topbar{
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+h1{
+
+    font-size:36px;
+
+}
+
+button{
+
+    width:100%;
+
+}
 
 }
 ```
