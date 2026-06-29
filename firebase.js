@@ -76,7 +76,11 @@ scores = Object.values(besteScores);
 scores.sort((a, b) => b.score - a.score);
 
         let html = `
-        <table>
+<h2>🏆 HV NOVITAS MAANDRANGLIJST</h2>
+<p><strong>👥 Deelnemers deze maand: ${scores.length}</strong></p>
+
+<table>
+`;
             <tr>
                 <th>#</th>
                 <th>Naam</th>
