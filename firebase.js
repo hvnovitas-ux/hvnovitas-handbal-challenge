@@ -75,6 +75,12 @@ scores = Object.values(besteScores);
 
 scores.sort((a, b) => b.score - a.score);
 
+scores = scores.slice(0, 10);
+
+const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
+
+scores.sort((a, b) => b.score - a.score);
+
         const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
 
 let html = `
