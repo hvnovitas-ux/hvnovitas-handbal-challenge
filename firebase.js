@@ -64,15 +64,21 @@ window.loadLeaderboard = function () {
 
         scores.forEach((p, i) => {
 
-            html += `
-            <tr>
-                <td>${i + 1}</td>
-                <td>${p.name}</td>
-                <td>${p.score}</td>
-            </tr>
-            `;
+    let plaats = i + 1;
 
-        });
+    if (i === 0) plaats = "🥇";
+    else if (i === 1) plaats = "🥈";
+    else if (i === 2) plaats = "🥉";
+
+    html += `
+    <tr>
+        <td>${plaats}</td>
+        <td>${p.name}</td>
+        <td>${p.score} / 30</td>
+    </tr>
+    `;
+
+});
 
         html += "</table>";
 
