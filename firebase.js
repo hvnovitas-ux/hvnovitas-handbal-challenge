@@ -121,3 +121,4 @@ ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
 };
 
 console.log("🔥 Firebase verbonden");
+ 
