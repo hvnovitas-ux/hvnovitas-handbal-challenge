@@ -1,4 +1,3 @@
-```javascript
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import {
   getDatabase,
@@ -69,4 +68,3 @@ window.loadLeaderboard = function() {
 }
 
 console.log("🔥 Firebase verbonden");
-```
