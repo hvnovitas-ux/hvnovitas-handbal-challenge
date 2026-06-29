@@ -75,8 +75,15 @@ scores = Object.values(besteScores);
 
 scores.sort((a, b) => b.score - a.score);
 
-        let html = `
+        const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
+
+let html = `
 <h2>🏆 HV NOVITAS MAANDRANGLIJST</h2>
+
+<p><strong>👑 Hoogste score: ${hoogsteScore} / 30</strong></p>
+
+${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
+
 <p><strong>👥 Deelnemers deze maand: ${scores.length}</strong></p>
 
 <table>
