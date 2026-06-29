@@ -93,13 +93,6 @@ ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
         <th>Score</th>
     </tr>
 `;
-            <tr>
-                <th>#</th>
-                <th>Naam</th>
-                <th>Score</th>
-            </tr>
-        `;
-
         scores.forEach((p, i) => {
 
     let plaats = i + 1;
