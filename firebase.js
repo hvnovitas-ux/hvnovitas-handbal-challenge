@@ -47,9 +47,17 @@ window.loadLeaderboard = function () {
 
         let scores = [];
 
-        snapshot.forEach((item) => {
-            scores.push(item.val());
-        });
+        const huidigeMaand = new Date().toISOString().substring(0,7);
+
+snapshot.forEach((item) => {
+
+    const score = item.val();
+
+    if (score.month === huidigeMaand) {
+        scores.push(score);
+    }
+
+});
 
         const besteScores = {};
 
