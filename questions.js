@@ -1,154 +1,182 @@
 const questions = [
 
 {
-    q:"Hoeveel spelers staan er per team in het veld?",
-    a:["5","6","7","8"],
-    c:2
+q:"Hoeveel spelers staan er per team in het veld?",
+a:["5","6","7","8"],
+c:2
+},
+
+{
+q:"Welke clubkleuren heeft HV Novitas?",
+a:["Groen - Zwart","Oranje - Wit","Rood - Geel","Oranje - Zwart"],
+c:3
+},
+
+{
+q:"In welke plaats is HV Novitas gevestigd?",
+a:["Terneuzen","Goes","Hulst","Middelburg"],
+c:2
+},
+
+{
+q:"Wie mag als enige de bal van de grond oprapen binnen het 6-metergebied?",
+a:["Cirkelspeler","Iedere speler","Scheidsrechter","Keeper"],
+c:3
+},
+
+{
+q:"Hoeveel stappen mag je zetten zonder te stuiten?",
+a:["2","3","4","5"],
+c:1
+},
+
+{
+q:"Waar wordt een 7-meterworp genomen?",
+a:["6 meter","7 meter","8 meter","9 meter"],
+c:1
+},
+
+{
+q:"Hoe lang mag je de bal vasthouden zonder te dribbelen of af te spelen?",
+a:["2 seconden","3 seconden","4 seconden","5 seconden"],
+c:1
+},
+
+{
+q:"Je krijgt een inworp. Wat is volgens de regels de juiste voetplaatsing?",
+a:["Beide voeten achter de zijlijn","Eén voet in het speelveld","Minimaal één voet op de zijlijn","Beide voeten op de middenlijn"],
+c:2
+},
+
+{
+q:"Bij een vrije worp (9-meterworp), mogen medespelers van de aanvallende ploeg al binnen de 9-meterlijn staan voordat de bal is genomen?",
+a:["Ja, dat mag altijd","Nee, pas nadat de bal de hand van de nemer heeft verlaten","Alleen de cirkelspeler","Alleen zonder fluitsignaal"],
+c:1
+},
+
+{
+q:"Je onderschept de bal door hem weg te tikken. Daarna pak je de bal met twee handen vast. Hoeveel stappen mag je nog zetten?",
+a:["2","3","Geen","Onbeperkt"],
+c:1
+},
+
+{
+q:"Je dribbelt met de bal, pakt hem met twee handen vast en begint daarna opnieuw te dribbelen. Wat beslist de scheidsrechter?",
+a:["Doorspelen","Vrije worp voor jouw team","Vrije worp voor de tegenpartij","7-meterworp"],
+c:2
+},
+
+{
+q:"Een verdediger staat met beide voeten in het 6-metergebied zonder de bal te raken. Wat beslist de scheidsrechter?",
+a:["Niets","Vrije worp voor de verdedigers","Vrije worp voor de aanvallers","7-meterworp"],
+c:2
+},
+
+{
+q:"De keeper stopt een schot. Daarna rolt de bal terug het doelgebied in. Mag de keeper de bal opnieuw oppakken?",
+a:["Nee","Ja, zolang de bal het doelgebied niet heeft verlaten","Alleen na een fluitsignaal","Alleen met de voet"],
+c:1
+},
+
+{
+q:"Een verdediger staat in het 6-metergebied. Een aanvaller gooit de bal tegen deze verdediger aan waardoor een duidelijke scoringskans verloren gaat. Wat beslist de scheidsrechter?",
+a:["Vrije worp voor de verdedigers","Doorspelen","7-meterworp","Hoekworp"],
+c:2
+},
+
+{
+q:"Een aanvaller vangt de bal met één voet in het 6-metergebied. Wat beslist de scheidsrechter?",
+a:["Doelpunt","Vrije worp voor de aanvallers","Vrije worp voor de verdedigers","Doorspelen"],
+c:2
 },
 {
-    q:"Welke kleur draagt HV Novitas?",
-    a:["Blauw","Groen","Oranje","Rood"],
-    c:2
+q:"Op welke positie speelt Estavana Polman voornamelijk?",
+a:["Linkerhoek","Keeper","Middenopbouw","Cirkelloopster"],
+c:2
 },
+
 {
-    q:"Waar speelt HV Novitas?",
-    a:["Hulst","Goes","Middelburg","Terneuzen"],
-    c:0
+q:"In welk jaar is HV Novitas opgericht?",
+a:["2010","2011","2012","2013"],
+c:2
 },
+
 {
-    q:"Wie verdedigt het doel?",
-    a:["Cirkel","Keeper","Hoek","Coach"],
-    c:1
+q:"Uit welk land komt Győri Audi ETO KC?",
+a:["Roemenië","Denemarken","Hongarije","Kroatië"],
+c:2
 },
+
 {
-    q:"Hoeveel helften heeft een handbalwedstrijd?",
-    a:["1","2","3","4"],
-    c:1
+q:"Hoe vaak zijn de Nederlandse handbaldames wereldkampioen geworden?",
+a:["Nooit","2 keer","1 keer","3 keer"],
+c:2
 },
+
 {
-    q:"Vanaf welke lijn wordt een strafworp genomen?",
-    a:["6 meter","7 meter","8 meter","9 meter"],
-    c:1
+q:"Wat is de officiële slogan van HV Novitas?",
+a:["Play Hard, Win Together","Orange Power","Together We Score","No Stress, Enjoy!"],
+c:3
 },
+
 {
-    q:"Hoeveel stappen mag je zetten zonder te stuiten?",
-    a:["2","3","4","5"],
-    c:1
+q:"Welke handbalvereniging speelde niet haar thuiswedstrijden in sporthal Den Dullaert?",
+a:["K.H.V.","HV Hulst","HV Hontenisse","Utopia"],
+c:3
 },
+
 {
-    q:"Welke sport speelt HV Novitas?",
-    a:["Volleybal","Handbal","Basketbal","Korfbal"],
-    c:1
+q:"Wat zijn de standaardafmetingen van een handbalveld?",
+a:["38 x 18 meter","42 x 22 meter","40 x 20 meter","44 x 22 meter"],
+c:2
 },
+
 {
-    q:"Hoeveel punten krijg je voor een overwinning?",
-    a:["1","2","3","0"],
-    c:1
+q:"Welke bekende Europese voetbalclub heeft géén handbalafdeling?",
+a:["PSG","FC Barcelona","Sporting Lissabon","Real Madrid"],
+c:3
 },
+
 {
-    q:"Wat is de slogan van HV Novitas?",
-    a:["No Stress, Enjoy!","Play Hard","Orange Power","Handball Forever"],
-    c:0
+q:"Waarvoor dient het kleine streepje (de 4-meterlijn) in het doelgebied?",
+a:["Voor de uitworp","Voor een vrije worp","Tot deze lijn mag de keeper naar voren komen bij een 7-meterworp","Voor de aanvallers"],
+c:2
 },
+
 {
-    q:"Hoe heet de lijn op 6 meter?",
-    a:["Doellijn","Doelgebiedlijn","Vrijeworplijn","Middenlijn"],
-    c:1
+q:"Met welke balmaat spelen de heren?",
+a:["Maat 1","Maat 2","Maat 3","Maat 4"],
+c:2
 },
+
 {
-    q:"Hoe lang duurt een tijdstraf?",
-    a:["1 minuut","2 minuten","3 minuten","5 minuten"],
-    c:1
+q:"De keeper schiet de bal met zijn voet vanuit zijn eigen doelgebied rechtstreeks in het doel van de tegenstander. Wat beslist de scheidsrechter?",
+a:["Doelpunt","Vrije worp voor de tegenpartij","Uitworp","Hoekworp"],
+c:0
 },
+
 {
-    q:"Welke kaart betekent directe uitsluiting?",
-    a:["Geel","Rood","Blauw","Groen"],
-    c:1
+q:"Een aanvaller krijgt de bal aangespeeld en kopt de bal rechtstreeks in het doel. Wat beslist de scheidsrechter?",
+a:["Vrije worp voor de verdedigende ploeg","Uitworp","Doelpunt","7-meterworp"],
+c:2
 },
+
 {
-    q:"Vanaf welke lijn wordt een vrije worp meestal genomen?",
-    a:["6 meter","7 meter","9 meter","10 meter"],
-    c:2
+q:"Je krijgt de bal per ongeluk tegen je knie aangespeeld. Wat mag je daarna doen?",
+a:["Vrije worp voor de tegenpartij","Alleen afspelen","Je mag de bal oppakken en verder spelen","Scheidsrechtersworp"],
+c:2
 },
+
 {
-    q:"Hoeveel scheidsrechters leiden meestal een wedstrijd?",
-    a:["1","2","3","4"],
-    c:1
+q:"Een verdediger blokkeert een schot. De bal gaat via de verdediger rechtstreeks over de eigen achterlijn. Wat beslist de scheidsrechter?",
+a:["Uitworp","Vrije worp voor de verdedigers","Hoekworp","Scheidsrechtersworp"],
+c:2
 },
+
 {
-    q:"Hoe heet een schot waarbij je springt en voor de landing gooit?",
-    a:["Draaischot","Sprongschot","Onderhands schot","Stuitschot"],
-    c:1
-},
-{
-    q:"Wanneer mag je wisselen?",
-    a:["Alleen in de rust","Na een doelpunt","Altijd via de wisselzone","Alleen na fluitsignaal"],
-    c:2
-},
-{
-    q:"Hoeveel spelers staan er tegelijk van één team in het veld inclusief keeper?",
-    a:["6","7","8","9"],
-    c:1
-},
-{
-    q:"Welke speler staat meestal midden in de aanval?",
-    a:["Hoekspeler","Cirkelspeler","Middenopbouwer","Keeper"],
-    c:2
-},
-{
-    q:"Welke maat bal gebruiken senior heren?",
-    a:["1","2","3","4"],
-    c:2
-},
-{
-    q:"Welke maat bal gebruiken senior dames?",
-    a:["1","2","3","4"],
-    c:1
-},
-{
-    q:"Wat gebeurt er als een verdediger de aanvaller in de cirkel duwt?",
-    a:["Doorspelen","Vrije worp","Strafworp","Doelpunt"],
-    c:2
-},
-{
-    q:"Wat betekent passief spel?",
-    a:["Te langzaam aanvallen zonder doelpoging","Alleen verdedigen","Veel wisselen","Bal laten stuiten"],
-    c:0
-},
-{
-    q:"Hoeveel seconden mag je de bal vasthouden zonder te dribbelen of te passen?",
-    a:["2","3","4","5"],
-    c:1
-},
-{
-    q:"Welke positie verdedigt het doel?",
-    a:["Cirkelspeler","Keeper","Middenopbouwer","Hoekspeler"],
-    c:1
-},
-{
-    q:"Wat is de maximale score voor deze quiz?",
-    a:["20","25","30","50"],
-    c:2
-},
-{
-    q:"In welke provincie ligt Hulst?",
-    a:["Noord-Brabant","Zeeland","Limburg","Zuid-Holland"],
-    c:1
-},
-{
-    q:"Waar staat HV Novitas bekend om?",
-    a:["Jeugdopleiding","Voetbal","Hockey","Volleybal"],
-    c:0
-},
-{
-    q:"Welke kleur hoort bij HV Novitas?",
-    a:["Blauw","Rood","Oranje","Paars"],
-    c:2
-},
-{
-    q:"Wat is het belangrijkste motto van HV Novitas?",
-    a:["Samen winnen","No Stress, Enjoy!","Altijd aanvallen","Nooit opgeven"],
-    c:1
+q:"Wat betekent de naam 'Novitas'?",
+a:["Handbalclub","Overwinning","Oranje kracht","Nieuw begin"],
+c:3
 }
 
 ];
