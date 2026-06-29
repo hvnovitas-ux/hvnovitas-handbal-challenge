@@ -38,9 +38,9 @@ window.loadLeaderboard = function () {
     const lijst = document.getElementById("leaderboardList");
 
     const q = query(
-        ref(db, "scores"),
-        orderByChild("score"),
-        limitToLast(10)
+    ref(db, "scores"),
+    orderByChild("score"),
+    limitToLast(500)
     );
 
     onValue(q, (snapshot) => {
