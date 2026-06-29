@@ -52,7 +52,13 @@ document.getElementById("finalScore").innerHTML = `
 
 <h3>🧡 No Stress, Enjoy!</h3>
 `;
-
+if (score === 30) {
+    confetti({
+        particleCount: 250,
+        spread: 180,
+        origin: { y: 0.6 }
+    });
+}
 function showQuestion(){
 const q=questions[current];
 status.textContent="🏆 Score: "+score;
