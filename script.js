@@ -1,4 +1,3 @@
-```javascript
 let current=0;
 let score=0;
 const startScreen=document.getElementById("startScreen");
@@ -102,4 +101,3 @@ leaderboard.style.display="none";
 startScreen.style.display="block";
 };
 }
-```
