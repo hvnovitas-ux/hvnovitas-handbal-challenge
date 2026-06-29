@@ -87,6 +87,11 @@ ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
 <p><strong>👥 Deelnemers deze maand: ${scores.length}</strong></p>
 
 <table>
+    <tr>
+        <th>#</th>
+        <th>Naam</th>
+        <th>Score</th>
+    </tr>
 `;
             <tr>
                 <th>#</th>
