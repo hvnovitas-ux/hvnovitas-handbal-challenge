@@ -51,7 +51,21 @@ window.loadLeaderboard = function () {
             scores.push(item.val());
         });
 
-        scores.sort((a, b) => b.score - a.score);
+        const besteScores = {};
+
+scores.forEach((p) => {
+
+    const naam = p.name.trim().toLowerCase();
+
+    if (!besteScores[naam] || p.score > besteScores[naam].score) {
+        besteScores[naam] = p;
+    }
+
+});
+
+scores = Object.values(besteScores);
+
+scores.sort((a, b) => b.score - a.score);
 
         let html = `
         <table>
