@@ -173,6 +173,7 @@ a:["Uitworp","Vrije worp voor de verdedigers","Hoekworp","Scheidsrechtersworp"],
 c:2
 },
 
+  
 {
 q:"Wat betekent de naam 'Novitas'?",
 a:["Handbalclub","Overwinning","Oranje kracht","Nieuw begin"],
