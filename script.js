@@ -9,11 +9,49 @@ const status=document.getElementById("status");
 const vraagnummer=document.getElementById("vraagnummer");
 const fill=document.getElementById("fill");
 
-document.getElementById("startButton").onclick=()=>{
-startScreen.style.display="none";
-game.style.display="block";
-showQuestion();
-};
+let titel = "";
+let sterren = "";
+let bericht = "";
+
+if(score == 30){
+    titel = "👑 HV NOVITAS MASTER";
+    sterren = "⭐⭐⭐⭐⭐";
+    bericht = "🎉 PERFECT! Je hebt alle vragen goed!";
+}
+else if(score >= 27){
+    titel = "🥇 Handbalexpert";
+    sterren = "⭐⭐⭐⭐☆";
+    bericht = "Fantastisch! Je kent de handbalregels uitstekend.";
+}
+else if(score >= 21){
+    titel = "🥈 Gevorderd";
+    sterren = "⭐⭐⭐☆☆";
+    bericht = "Heel goed gedaan! Je weet veel van handbal.";
+}
+else if(score >= 11){
+    titel = "🥉 Beginner";
+    sterren = "⭐⭐☆☆☆";
+    bericht = "Leuke score! Nog even oefenen.";
+}
+else{
+    titel = "💪 Rookie";
+    sterren = "⭐☆☆☆☆";
+    bericht = "Blijf trainen, dan haal je de volgende keer meer punten!";
+}
+
+document.getElementById("finalScore").innerHTML = `
+<h2>🏆 HV NOVITAS HANDBAL CHALLENGE</h2>
+
+<h1>${score} / ${questions.length}</h1>
+
+<h2>${titel}</h2>
+
+<h3>${sterren}</h3>
+
+<p>${bericht}</p>
+
+<h3>🧡 No Stress, Enjoy!</h3>
+`;
 
 function showQuestion(){
 const q=questions[current];
