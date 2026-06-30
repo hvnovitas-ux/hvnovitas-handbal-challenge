@@ -29,7 +29,6 @@ q:"Hoeveel stappen mag je zetten zonder te stuiten?",
 a:["2","3","4","5"],
 c:1
 },
-
 {
 q:"Waar wordt een 7-meterworp genomen?",
 a:["6 meter","7 meter","8 meter","9 meter"],
