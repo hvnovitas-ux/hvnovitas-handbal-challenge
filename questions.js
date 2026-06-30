@@ -238,3 +238,121 @@ q:"In welk land speelde HV Novitas zijn eerste competitiewedstrijd?",
 a:["Nederland","België","Duitsland","Frankrijk"],
 c:1
 },
+{
+q:"Wie is recordinternational van het Nederlandse dameshandbal?",
+a:["Estavana Polman","Lois Abbingh","Angela Malestein","Laura van der Heijden"],
+c:2
+},
+
+{
+q:"Hoe vaak werd Duitsland wereldkampioen bij de heren?",
+a:["1 keer","2 keer","3 keer","4 keer"],
+c:2
+},
+
+{
+q:"In welk land is het moderne handbal ontstaan?",
+a:["Denemarken","Duitsland","Zweden","Frankrijk"],
+c:1
+},
+
+{
+q:"Toen handbal nog op een voetbalveld werd gespeeld, uit hoeveel veldspelers bestond een team?",
+a:["7","9","11","13"],
+c:2
+},
+
+{
+q:"Welke coach was bondscoach van zowel Nederland als Duitsland?",
+a:["Per Johansson","Henk Groener","Emir Kurtagic","Henk Custers"],
+c:2
+},
+
+{
+q:"De bal raakt tijdens het spel het dak van de sporthal. Wat beslist de scheidsrechter?",
+a:["Doorspelen","Vrije worp voor de tegenpartij","Scheidsrechtersworp","Uitworp"],
+c:1
+},
+
+{
+q:"Een speler houdt de bal binnen het veld, maar staat met één voet buiten de zijlijn. Wat beslist de scheidsrechter?",
+a:["Doorspelen","Inworp voor de tegenpartij","Vrije worp","Scheidsrechtersworp"],
+c:1
+},
+
+{
+q:"Een verzorger loopt zonder toestemming het speelveld op om een geblesseerde speler te helpen. Wat gebeurt er?",
+a:["Niets","De verzorger krijgt geel","De speler krijgt een 2-minutenstraf","Vrije worp voor de tegenpartij"],
+c:2
+},
+
+{
+q:"Een speler moet tijdens het spel dringend naar het toilet en verlaat zonder toestemming het veld via de verkeerde zijlijn. Wat gebeurt er?",
+a:["Niets","Waarschuwing","2 minuten tijdstraf","Rode kaart"],
+c:2
+},
+
+{
+q:"De bal gaat voor een groot deel over de doellijn, maar niet volledig. Is het een doelpunt?",
+a:["Ja","Nee","Alleen als de keeper de bal raakt","Alleen na videoscheidsrechter"],
+c:1
+},
+{
+q:"Je krijgt net een doelpunt tegen. Een medespeler staat al klaar op de middenlijn en ontvangt direct de bal. Moet je wachten op het fluitsignaal van de scheidsrechter?",
+a:["Ja, altijd","Nee, als aan alle voorwaarden voor de snelle middenuitworp is voldaan","Alleen in de laatste 10 minuten","Alleen bij een gelijkspel"],
+c:1
+},
+
+{
+q:"Na een doelpunt loopt een speler van de scorende ploeg door de middencirkel en tikt de bal weg om de snelle middenuitworp te verhinderen. Wat beslist de scheidsrechter?",
+a:["Doorspelen","Vrije worp","2 minuten tijdstraf","Waarschuwing"],
+c:2
+},
+
+{
+q:"Een team speelt in het oranje, maar de keeper van de tegenpartij draagt ook een oranje shirt. Wat gebeurt er?",
+a:["De wedstrijd begint gewoon","De keeper moet van shirt wisselen","Het thuisspelende team moet wisselen","De scheidsrechter beslist tijdens de rust"],
+c:1
+},
+
+{
+q:"Een zeer getalenteerde damespeelster wil uitkomen in een herenteam. Mag dat volgens de Nederlandse regels?",
+a:["Ja","Nee","Alleen met toestemming van de bond","Alleen tot en met de jeugd"],
+c:3
+},
+
+{
+q:"Vroeger stonden er doelrechters achter de doelen. Wat was hun belangrijkste taak?",
+a:["De tijd bijhouden","Wissels controleren","Helpen beoordelen of de bal de doellijn volledig had gepasseerd","De coaches aanspreken"],
+c:2
+},
+
+{
+q:"De scheidsrechter is zijn fluitje vergeten en niemand in de sporthal heeft een fluitje. Wat gebeurt er?",
+a:["De wedstrijd begint gewoon","De wedstrijd kan niet beginnen","De aanvoerders fluiten","Een coach neemt de leiding over"],
+c:1
+},
+
+{
+q:"Een speler gooit de bal na het fluitsignaal bewust hoog de lucht in om tijd te rekken. Wat beslist de scheidsrechter?",
+a:["Doorspelen","Vrije worp","2 minuten tijdstraf","Waarschuwing"],
+c:2
+},
+
+{
+q:"Een speler krijgt tijdens de wedstrijd drie keer een tijdstraf van 2 minuten. Wat is het gevolg?",
+a:["Niets","Hij krijgt nog een waarschuwing","Hij wordt gediskwalificeerd (rode kaart)","Zijn team krijgt een strafpunt"],
+c:2
+},
+
+{
+q:"Hoe groot is het doel bij handbal?",
+a:["2 meter breed en 3 meter hoog","3 meter breed en 2 meter hoog","3 meter breed en 2,5 meter hoog","2,5 meter breed en 2 meter hoog"],
+c:1
+},
+
+{
+q:"Hoeveel wisselspelers mogen tijdens een officiële handbalwedstrijd op het wedstrijdformulier staan?",
+a:["7","9","12","16"],
+c:3
+}
