@@ -252,7 +252,7 @@ c:2
 {
 q:"In welk land is het moderne handbal ontstaan?",
 a:["Denemarken","Duitsland","Zweden","Frankrijk"],
-c:1
+c:0
 },
 
 {
