@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #2f2f2f;
-    color: #000;
+    color: #ffffff;
     margin: 0;
     padding: 30px;
 }
@@ -41,6 +41,6 @@ small {
 
 hr {
     border: none;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #555;
     margin: 20px 0;
 }
