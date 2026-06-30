@@ -178,6 +178,63 @@ c:2
 q:"Wat betekent de naam 'Novitas'?",
 a:["Handbalclub","Overwinning","Oranje kracht","Nieuw begin"],
 c:3
-}
+},
+{
+q:"Een verdediger springt van buiten het 6-metergebied omhoog. In de lucht tikt hij de bal weg naar een medespeler en landt daarna in het doelgebied. Wat beslist de scheidsrechter?",
+a:["Vrije worp voor de aanvallers","7-meterworp","Doorspelen","Uitworp"],
+c:2
+},
 
-];
+{
+q:"De keeper staat met één voet in het doelgebied en één voet erbuiten. Mag hij de bal aanraken?",
+a:["Nee","Ja","Alleen met de voet","Alleen na een fluitsignaal"],
+c:1
+},
+
+{
+q:"De bal ligt stil in het doelgebied. Hoe lang mag hij daar blijven liggen voordat de scheidsrechter ingrijpt?",
+a:["3 seconden","5 seconden","10 seconden","Er is geen vaste tijd"],
+c:3
+},
+
+{
+q:"Een speler gooit de bal uit frustratie bewust tegen de scheidsrechter. Wat beslist de scheidsrechter?",
+a:["Vrije worp","2 minuten tijdstraf","Rode kaart","Doorspelen"],
+c:2
+},
+
+{
+q:"Hoe wordt een vlieger in het internationale handbal genoemd?",
+a:["Spin","Kempa","Flyball","Jump Shot"],
+c:1
+},
+
+{
+q:"Welke kaart bestaat niet als officiële strafkaart bij handbal?",
+a:["Geel","Rood","Groen","Blauw"],
+c:2
+},
+
+{
+q:"Hoe lang duurt een officiële seniorenwedstrijd?",
+a:["2 x 25 minuten","2 x 35 minuten","2 x 30 minuten","3 x 20 minuten"],
+c:2
+},
+
+{
+q:"Wie scoorde de beslissende strafworp voor Nederland in de WK-finale van 2019?",
+a:["Estavana Polman","Lois Abbingh","Angela Malestein","Kelly Dulfer"],
+c:2
+},
+
+{
+q:"In welk jaar kreeg HV Novitas een eigen buitenveld?",
+a:["2015","2016","2017","2018"],
+c:2
+},
+
+{
+q:"In welk land speelde HV Novitas zijn eerste competitiewedstrijd?",
+a:["Nederland","België","Duitsland","Frankrijk"],
+c:1
+},
