@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
     background: #2f2f2f;
-    color: #ffffff;
+    color: white;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 30px;
 }
@@ -12,35 +12,29 @@ body {
 }
 
 h1 {
-    color: #ff7a00;
+    color: orange;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 .bericht {
-    background: #ffffff;
+    background: white;
+    color: black;
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
 }
 
-h2 {
-    color: #000;
+.bericht h2 {
+    color: black;
     margin-top: 0;
 }
 
-p {
-    color: #000;
+.bericht p {
+    color: black;
     line-height: 1.6;
 }
 
-small {
+.bericht small {
     color: #666;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #555;
-    margin: 20px 0;
 }
