@@ -1,5 +1,21 @@
 let current = 0;
 let score = 0;
+function shuffle(array) {
+
+    for (let i = array.length - 1; i > 0; i--) {
+
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [array[i], array[j]] = [array[j], array[i]];
+
+    }
+
+    return array;
+
+}
+
+let quizQuestions = [];
+Stap 2
 
 const startScreen = document.getElementById("startScreen");
 const game = document.getElementById("game");
@@ -14,6 +30,7 @@ const fill = document.getElementById("fill");
 document.getElementById("startButton").onclick = () => {
     current = 0;
     score = 0;
+    quizQuestions = shuffle([...questions]).slice(0,30);
 
     startScreen.style.display = "none";
     finishScreen.style.display = "none";
@@ -25,7 +42,7 @@ document.getElementById("startButton").onclick = () => {
 
 function showQuestion() {
 
-    const q = questions[current];
+    const q = quizQuestions[current];
 
     status.textContent = "🏆 Score: " + score;
     vraagnummer.textContent = "Vraag " + (current + 1) + " / " + questions.length;
