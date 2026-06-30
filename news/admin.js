@@ -4,6 +4,7 @@ import {
     ref,
     push
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+console.log("✅ admin.js geladen");
 
 const firebaseConfig = {
     apiKey: "AIzaSyBCUZeWMIxIz__7TfNG_b0V47H_pYFPyQ",
