@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <link rel="stylesheet" href="news.css">
-    <meta charset="UTF-8">
-    <title>HV Novitas Nieuws</title>
-</head>
-<body>
+html += `
+<div class="bericht">
 
-<h1>📰 HV Novitas Nieuws</h1>
+<h2>${b.title}</h2>
 
-</body>
-</html>
+<small>📅 ${datum} 🕒 ${tijd}</small>
+
+<p>${b.text}</p>
+
+</div>
+
+<hr>
+`;
