@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #000;
+    background: #ffffff;
+    margin: 20px;
+}
+
+h1 {
+    color: #ff6600;
+}
+
+h2 {
+    color: #000;
+}
+
+p {
+    color: #000;
+}
+
+small {
+    color: #666;
+}
+
+.berichten {
+    max-width: 900px;
+    margin: auto;
+}
+
+.bericht {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
