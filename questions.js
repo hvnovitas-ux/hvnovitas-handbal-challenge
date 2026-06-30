@@ -238,3 +238,5 @@ q:"In welk land speelde HV Novitas zijn eerste competitiewedstrijd?",
 a:["Nederland","België","Duitsland","Frankrijk"],
 c:1
 },
+
+];
