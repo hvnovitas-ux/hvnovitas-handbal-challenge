@@ -1,13 +1,27 @@
-html += `
-<div class="bericht">
+<!DOCTYPE html>
+<html lang="nl">
 
-<h2>${b.title}</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📰 HV Novitas Nieuws</title>
 
-<small>📅 ${datum} 🕒 ${tijd}</small>
+    <link rel="stylesheet" href="news.css">
+</head>
 
-<p>${b.text}</p>
+<body>
+
+<div class="berichten">
+
+    <h1>📰 Laatste Nieuws</h1>
+
+    <div id="news">
+        Nieuws wordt geladen...
+    </div>
 
 </div>
 
-<hr>
-`;
+<script type="module" src="index.js"></script>
+
+</body>
+</html>
