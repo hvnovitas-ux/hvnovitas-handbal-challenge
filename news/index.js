@@ -49,7 +49,7 @@ const tijd = b.time;
         html += `
         <div class="bericht">
             <h2>${b.title}</h2>
-            <small>${datum}</small>
+            <small>📅 ${datum} 🕒 ${tijd}</small>
             <p>${b.text}</p>
         </div>
         <hr>
