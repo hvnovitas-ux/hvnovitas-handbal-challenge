@@ -28,11 +28,16 @@ document.getElementById("publish").addEventListener("click", () => {
         return;
     }
 
-    push(ref(db, "news"), {
-        title,
-        text,
-        created: Date.now()
-    });
+   push(ref(db, "news"), {
+    title,
+    text,
+    created: Date.now(),
+    date: new Date().toLocaleDateString("nl-NL"),
+    time: new Date().toLocaleTimeString("nl-NL", {
+        hour: "2-digit",
+        minute: "2-digit"
+    })
+});
 
     document.getElementById("melding").textContent =
         "✅ Nieuwsbericht opgeslagen!";
