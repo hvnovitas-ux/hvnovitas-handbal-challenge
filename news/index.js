@@ -43,7 +43,8 @@ onValue(q, (snapshot) => {
 
     berichten.forEach((b) => {
 
-        const datum = new Date(b.created).toLocaleDateString("nl-NL");
+        const datum = b.date;
+const tijd = b.time;
 
         html += `
         <div class="bericht">
