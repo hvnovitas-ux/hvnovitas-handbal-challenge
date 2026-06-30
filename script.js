@@ -15,7 +15,6 @@ function shuffle(array) {
 }
 
 let quizQuestions = [];
-Stap 2
 
 const startScreen = document.getElementById("startScreen");
 const game = document.getElementById("game");
