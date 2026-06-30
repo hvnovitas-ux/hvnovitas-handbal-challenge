@@ -121,7 +121,18 @@ document.getElementById("next").onclick = () => {
     }
 
 };
-
+const verbodenWoorden = [
+    "fuck",
+    "fok",
+    "hoer",
+    "kut",
+    "lul",
+    "tering",
+    "kanker",
+    "shit",
+    "bitch",
+    "nazi"
+];
 document.getElementById("saveScore").onclick = function () {
 
     const naam = document.getElementById("playerName").value.trim();
