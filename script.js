@@ -135,7 +135,12 @@ const verbodenWoorden = [
 ];
 document.getElementById("saveScore").onclick = function () {
 
-    const naam = document.getElementById("playerName").value.trim();
+    let naam = document.getElementById("playerName").value.trim();
+
+naam = naam
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
 
 // Minimaal en maximaal aantal tekens
 if (naam.length < 2 || naam.length > 20) {
