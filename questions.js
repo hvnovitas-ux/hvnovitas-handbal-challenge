@@ -240,7 +240,7 @@ c:1
 {
 q:"Wie is recordinternational van het Nederlandse dameshandbal?",
 a:["Estavana Polman","Lois Abbingh","Angela Malestein","Laura van der Heijden"],
-c:2
+c:1
 },
 
 {
