@@ -137,10 +137,29 @@ document.getElementById("saveScore").onclick = function () {
 
     const naam = document.getElementById("playerName").value.trim();
 
-    if (naam === "") {
-        alert("Vul eerst je naam in.");
+// Minimaal en maximaal aantal tekens
+if (naam.length < 2 || naam.length > 20) {
+    alert("Naam moet tussen de 2 en 20 tekens bevatten.");
+    return;
+}
+
+// Alleen letters, cijfers, spaties, - en _
+const naamRegex = /^[a-zA-ZÀ-ÿ0-9 _-]+$/;
+
+if (!naamRegex.test(naam)) {
+    alert("Gebruik alleen letters, cijfers, spaties, - en _");
+    return;
+}
+
+// Scheldwoorden blokkeren
+const naamKlein = naam.toLowerCase();
+
+for (const woord of verbodenWoorden) {
+    if (naamKlein.includes(woord)) {
+        alert("Gebruik een nette naam.");
         return;
     }
+}
 
     if (typeof saveOnlineScore !== "function") {
         alert("Firebase is nog niet verbonden.");
