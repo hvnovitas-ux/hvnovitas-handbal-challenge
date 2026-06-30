@@ -45,8 +45,8 @@ function showQuestion() {
     const q = quizQuestions[current];
 
     status.textContent = "🏆 Score: " + score;
-    vraagnummer.textContent = "Vraag " + (current + 1) + " / " + questions.length;
-    fill.style.width = ((current / questions.length) * 100) + "%";
+    vraagnummer.textContent = "Vraag " + (current + 1) + " / " + quizQuestions.length;
+    fill.style.width = ((current / quizQuestions.length) * 100) + "%";
 
     quiz.innerHTML = `
         <h2>${q.q}</h2>
@@ -70,13 +70,13 @@ document.getElementById("next").onclick = () => {
         return;
     }
 
-    if (Number(gekozen.value) === questions[current].c) {
+    if (Number(gekozen.value) === quizQuestions[current].c) {
         score++;
     }
 
     current++;
 
-    if (current < questions.length) {
+    if (current < quizQuestions.length) {
         showQuestion();
         return;
     }
@@ -108,7 +108,7 @@ document.getElementById("next").onclick = () => {
 
     document.getElementById("finalScore").innerHTML = `
         <h2>🏆 HV NOVITAS HANDBAL CHALLENGE</h2>
-        <h1>${score} / ${questions.length}</h1>
+        <h1>${score} / ${quizQuestions.length}</h1>
         <h2>${titel}</h2>
         <h3>${sterren}</h3>
         <p>${bericht}</p>
