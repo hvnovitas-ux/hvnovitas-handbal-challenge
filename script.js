@@ -226,4 +226,4 @@ if (backHome2) {
 
 }
 
-console.log("🏆 HV Novitas Quiz v1.1 geladen");
+console.log("🏆 HV Novitas Quiz v2.0 - Naamfilter actief");
