@@ -264,7 +264,7 @@ c:2
 {
 q:"Welke coach was bondscoach van zowel Nederland als Duitsland?",
 a:["Per Johansson","Henk Groener","Emir Kurtagic","Henk Custers"],
-c:2
+c:1
 },
 
 {
