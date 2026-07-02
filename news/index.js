@@ -44,14 +44,21 @@ onValue(q, (snapshot) => {
     berichten.forEach((b) => {
 
         const datum = b.date;
-const tijd = b.time;
+        const tijd = b.time;
 
         html += `
         <div class="bericht">
+
+            ${b.image ? `<img src="images/${b.image}" class="news-image" alt="${b.title}">` : ""}
+
             <h2>${b.title}</h2>
+
             <small>📅 ${datum} 🕒 ${tijd}</small>
+
             <p>${b.text}</p>
+
         </div>
+
         <hr>
         `;
     });
