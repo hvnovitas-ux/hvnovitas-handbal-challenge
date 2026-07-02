@@ -22,6 +22,11 @@
 
 <br><br>
 
+<p>📷 Foto (optioneel)</p>
+<input type="text" id="image" placeholder="bijvoorbeeld training.jpg">
+
+<br><br>
+
 <button id="publish">
 📢 Publiceren
 </button>
@@ -32,3 +37,12 @@
 
 </body>
 </html>
+Daarna passen we admin.js aan.
+
+Dat is heel eenvoudig.
+
+Voeg boven de push() toe:
+
+const image = document.getElementById("image").value.trim();
+
+En verander de push() in:
