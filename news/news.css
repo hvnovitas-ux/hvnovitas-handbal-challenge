@@ -25,16 +25,22 @@ h1 {
     box-shadow: 0 4px 10px rgba(0,0,0,.3);
 }
 
+.news-image {
+    width: 100%;
+    max-width: 860px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 .bericht h2 {
     color: black;
     margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .bericht p {
     color: black;
     line-height: 1.6;
-}
-
-.bericht small {
-    color: #666;
-}
+    white-space: pre
