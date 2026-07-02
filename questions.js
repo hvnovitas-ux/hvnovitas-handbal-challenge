@@ -20,7 +20,7 @@ c:2
 
 {
 q:"Wie mag als enige de bal van de grond oprapen binnen het 6-metergebied?",
-a:["Cirkelspeler","Iedere speler","Scheidsrechter","Keeper"],
+a:["Cirkelspeler","Iedere speler","Coach","Keeper"],
 c:3
 },
 
@@ -73,7 +73,7 @@ c:2
 
 {
 q:"De keeper stopt een schot. Daarna rolt de bal terug het doelgebied in. Mag de keeper de bal opnieuw oppakken?",
-a:["Nee","Ja, zolang de bal het doelgebied niet heeft verlaten","Alleen na een fluitsignaal","Alleen met de voet"],
+a:["Nee","Ja","Alleen na een fluitsignaal","Alleen met de voet"],
 c:1
 },
 
@@ -84,13 +84,13 @@ c:2
 },
 
 {
-q:"Een aanvaller vangt de bal met één voet in het 6-metergebied. Wat beslist de scheidsrechter?",
+q:"Een aanvaller vangt de bal terwijl hij met één voet in het 6-metergebied staat. Wat beslist de scheidsrechter?",
 a:["Doelpunt","Vrije worp voor de aanvallers","Vrije worp voor de verdedigers","Doorspelen"],
 c:2
 },
 {
 q:"Op welke positie speelt Estavana Polman voornamelijk?",
-a:["Linkerhoek","Keeper","Middenopbouw","Cirkelloopster"],
+a:["Linkerhoek","Keeper","Linkeropbouw","Cirkelloopster"],
 c:2
 },
 
@@ -187,7 +187,7 @@ c:2
 {
 q:"De keeper staat met één voet in het doelgebied en één voet erbuiten. Mag hij de bal aanraken?",
 a:["Nee","Ja","Alleen met de voet","Alleen na een fluitsignaal"],
-c:1
+c:0
 },
 
 {
@@ -223,7 +223,7 @@ c:2
 {
 q:"Wie scoorde de beslissende strafworp voor Nederland in de WK-finale van 2019?",
 a:["Estavana Polman","Lois Abbingh","Angela Malestein","Kelly Dulfer"],
-c:2
+c:1
 },
 
 {
@@ -240,7 +240,7 @@ c:1
 {
 q:"Wie is recordinternational van het Nederlandse dameshandbal?",
 a:["Estavana Polman","Lois Abbingh","Angela Malestein","Laura van der Heijden"],
-c:1
+c:3
 },
 
 {
@@ -269,8 +269,8 @@ c:1
 
 {
 q:"De bal raakt tijdens het spel het dak van de sporthal. Wat beslist de scheidsrechter?",
-a:["Doorspelen","Vrije worp voor de tegenpartij","Scheidsrechtersworp","Uitworp"],
-c:1
+a:["Doorspelen","Vrije worp voor de tegenpartij","Scheidsrechtersworp","Inworp"],
+c:3
 },
 
 {
@@ -317,7 +317,7 @@ c:1
 {
 q:"Een zeer getalenteerde damespeelster wil uitkomen in een herenteam. Mag dat volgens de Nederlandse regels?",
 a:["Ja","Nee","Alleen met toestemming van de bond","Alleen tot en met de jeugd"],
-c:3
+c:2
 },
 
 {
@@ -333,7 +333,7 @@ c:1
 },
 
 {
-q:"Een speler gooit de bal na het fluitsignaal bewust hoog de lucht in om tijd te rekken. Wat beslist de scheidsrechter?",
+q:"Een speler gooit de bal na een overtreding de bal bewust weg. Wat beslist de scheidsrechter?",
 a:["Doorspelen","Vrije worp","2 minuten tijdstraf","Waarschuwing"],
 c:2
 },
@@ -351,8 +351,8 @@ c:1
 },
 
 {
-q:"Hoeveel wisselspelers mogen tijdens een officiële handbalwedstrijd op het wedstrijdformulier staan?",
-a:["7","9","12","16"],
-c:3
+q:"Hoeveel handbalverenigingen zijn er in Zeeuws-Vlaanderen ?",
+a:["3","6","1","2"],
+c:2
 }
 ];
