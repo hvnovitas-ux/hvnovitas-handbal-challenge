@@ -4,6 +4,7 @@ import {
     ref,
     push
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
 console.log("✅ admin.js geladen");
 
 const firebaseConfig = {
@@ -23,27 +24,30 @@ document.getElementById("publish").addEventListener("click", () => {
 
     const title = document.getElementById("title").value.trim();
     const text = document.getElementById("text").value.trim();
+    const image = document.getElementById("image").value.trim();
 
     if (!title || !text) {
         alert("Vul een titel en een bericht in.");
         return;
     }
 
-   push(ref(db, "news"), {
-    title,
-    text,
-    created: Date.now(),
-    date: new Date().toLocaleDateString("nl-NL"),
-    time: new Date().toLocaleTimeString("nl-NL", {
-        hour: "2-digit",
-        minute: "2-digit"
-    })
-});
+    push(ref(db, "news"), {
+        title,
+        text,
+        image,
+        created: Date.now(),
+        date: new Date().toLocaleDateString("nl-NL"),
+        time: new Date().toLocaleTimeString("nl-NL", {
+            hour: "2-digit",
+            minute: "2-digit"
+        })
+    });
 
     document.getElementById("melding").textContent =
         "✅ Nieuwsbericht opgeslagen!";
 
     document.getElementById("title").value = "";
     document.getElementById("text").value = "";
+    document.getElementById("image").value = "";
 
 });
