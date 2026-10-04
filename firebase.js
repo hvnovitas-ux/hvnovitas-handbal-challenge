@@ -1,134 +1,123 @@
-<!DOCTYPE html>
-<html lang="nl">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {
+    getDatabase,
+    ref,
+    push,
+    query,
+    orderByChild,
+    limitToLast,
+    onValue
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+const firebaseConfig = {
+    apiKey: "AIzaSyBCUZeWMIxIz__7TfNG_b0V47H_pYFPyQ",
+    authDomain: "hv-novitas-handbal-challenge.firebaseapp.com",
+    databaseURL: "https://hv-novitas-handbal-challenge-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "hv-novitas-handbal-challenge",
+    storageBucket: "hv-novitas-handbal-challenge.firebasestorage.app",
+    messagingSenderId: "707710141199",
+    appId: "1:707710141199:web:ba304ce4e5f653d0afb47a"
+};
 
-<title>HV Novitas – Handbalvereniging uit Hulst</title>
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-<meta name="description" content="HV Novitas is de handbalvereniging uit Hulst in Zeeuws-Vlaanderen. Bekijk onze wedstrijden, trainingen, activiteiten en highlights.">
+window.saveOnlineScore = function (name, score) {
 
-<link rel="canonical" href="https://hvnovitas.nl/">
+    push(ref(db, "scores"), {
+        name: name,
+        score: score,
+        month: new Date().toISOString().substring(0, 7),
+        created: Date.now()
+    });
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef1f5;
-    color: #222;
-}
+};
 
-.topbar {
-    background: linear-gradient(90deg, #ff6a00, #ff8c1a);
-    color: white;
-    padding: 18px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
+window.loadLeaderboard = function () {
 
-.intro {
-    max-width: 1100px;
-    margin: 20px auto 10px;
-    padding: 0 20px;
-}
+    const lijst = document.getElementById("leaderboardList");
 
-.intro h1 {
-    margin-bottom: 10px;
-    font-size: 30px;
-}
+    const q = query(
+    ref(db, "scores"),
+    orderByChild("score"),
+    limitToLast(500)
+    );
 
-.intro p {
-    line-height: 1.6;
-    font-size: 16px;
-}
+    onValue(q, (snapshot) => {
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    padding: 15px;
-}
+        let scores = [];
 
-.column {
-    background: white;
-    border-radius: 14px;
-    padding: 12px;
-    min-height: 500px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
+        const huidigeMaand = new Date().toISOString().substring(0,7);
 
-.item {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    background: #f7f7f7;
-    border-left: 4px solid #ccc;
-}
+snapshot.forEach((item) => {
 
-.match { border-left-color: #ff6a00; }
-.training { border-left-color: #2ecc71; }
-.meeting { border-left-color: #3498db; }
-.clubday { border-left-color: #f1c40f; }
-.highlight { border-left-color: gold; }
+    const score = item.val();
 
-@media (max-width: 900px) {
-    .container {
-        grid-template-columns: 1fr;
+    if (score.month === huidigeMaand) {
+        scores.push(score);
     }
-}
-</style>
 
-</head>
+});
 
-<body>
+        const besteScores = {};
 
-<div class="topbar">🧡 HV NOVITAS</div>
+scores.forEach((p) => {
 
-<main>
+    const naam = p.name.trim().toLowerCase();
 
-    <!-- VASTE HTML-INHOUD VOOR BEZOEKERS EN ZOEKMACHINES -->
-    <section class="intro">
+    if (!besteScores[naam] || p.score > besteScores[naam].score) {
+        besteScores[naam] = p;
+    }
 
-        <h1>HV Novitas – Handbalvereniging uit Hulst</h1>
+});
 
-        <p>
-            HV Novitas is een handbalvereniging uit Hulst in Zeeuws-Vlaanderen.
-            Bij onze vereniging staat handbal, bewegen en plezier centraal.
-            We organiseren trainingen, wedstrijden en activiteiten voor onze leden.
-        </p>
+scores = Object.values(besteScores);
 
-        <p>
-            Op deze pagina vind je de actuele wedstrijden, trainingen,
-            activiteiten en highlights van HV Novitas.
-        </p>
+scores.sort((a, b) => b.score - a.score);
 
-    </section>
+scores = scores.slice(0, 500);
 
-    <!-- ACTUELE INHOUD UIT FIREBASE -->
-    <section class="container" aria-label="Agenda HV Novitas">
+const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
+let html = `
+<h2>🏆 HV NOVITAS MAANDRANGLIJST</h2>
 
-        <div class="column" id="matches">
-            <h2>⚔️ Wedstrijden</h2>
-        </div>
+<p><strong>👑 Hoogste score: ${hoogsteScore} / 30</strong></p>
 
-        <div class="column" id="activities">
-            <h2>🏋️ Activiteiten</h2>
-        </div>
+${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
 
-        <div class="column" id="highlights">
-            <h2>🏆 Highlights</h2>
-        </div>
+<p><strong>👥 Deelnemers deze maand: ${scores.length}</strong></p>
 
-    </section>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Naam</th>
+        <th>Score</th>
+    </tr>
+`;
+        scores.forEach((p, i) => {
 
-</main>
+    let plaats = i + 1;
 
-<!-- Firebase / actuele agenda -->
-<script type="module" src="index.js"></script>
+    if (i === 0) plaats = "🥇";
+    else if (i === 1) plaats = "🥈";
+    else if (i === 2) plaats = "🥉";
 
-</body>
-</html>
+    html += `
+    <tr>
+        <td>${plaats}</td>
+        <td>${p.name}</td>
+        <td>${p.score} / 30</td>
+    </tr>
+    `;
+
+});
+
+        html += "</table>";
+
+        lijst.innerHTML = html;
+
+    });
+
+};
+
+console.log("🔥 Firebase verbonden");
