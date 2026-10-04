@@ -22,63 +22,64 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-window.saveOnlineScore = function (name, score) {
+export function saveOnlineScore(name, score) {
 
-    push(ref(db, "scores"), {
+    return push(ref(db, "scores"), {
         name: name,
         score: score,
         month: new Date().toISOString().substring(0, 7),
         created: Date.now()
     });
 
-};
+}
 
-window.loadLeaderboard = function () {
+export function loadLeaderboard() {
 
     const lijst = document.getElementById("leaderboardList");
 
     const q = query(
-    ref(db, "scores"),
-    orderByChild("score"),
-    limitToLast(500)
+        ref(db, "scores"),
+        orderByChild("score"),
+        limitToLast(500)
     );
 
     onValue(q, (snapshot) => {
 
         let scores = [];
 
-        const huidigeMaand = new Date().toISOString().substring(0,7);
+        const huidigeMaand = new Date().toISOString().substring(0, 7);
 
-snapshot.forEach((item) => {
+        snapshot.forEach((item) => {
 
-    const score = item.val();
+            const score = item.val();
 
-    if (score.month === huidigeMaand) {
-        scores.push(score);
-    }
+            if (score.month === huidigeMaand) {
+                scores.push(score);
+            }
 
-});
+        });
 
         const besteScores = {};
 
-scores.forEach((p) => {
+        scores.forEach((p) => {
 
-    const naam = p.name.trim().toLowerCase();
+            const naam = p.name.trim().toLowerCase();
 
-    if (!besteScores[naam] || p.score > besteScores[naam].score) {
-        besteScores[naam] = p;
-    }
+            if (!besteScores[naam] || p.score > besteScores[naam].score) {
+                besteScores[naam] = p;
+            }
 
-});
+        });
 
-scores = Object.values(besteScores);
+        scores = Object.values(besteScores);
 
-scores.sort((a, b) => b.score - a.score);
+        scores.sort((a, b) => b.score - a.score);
 
-scores = scores.slice(0, 500);
+        scores = scores.slice(0, 500);
 
-const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
-let html = `
+        const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
+
+        let html = `
 <h2>🏆 HV NOVITAS MAANDRANGLIJST</h2>
 
 <p><strong>👑 Hoogste score: ${hoogsteScore} / 30</strong></p>
@@ -94,15 +95,16 @@ ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
         <th>Score</th>
     </tr>
 `;
+
         scores.forEach((p, i) => {
 
-    let plaats = i + 1;
+            let plaats = i + 1;
 
-    if (i === 0) plaats = "🥇";
-    else if (i === 1) plaats = "🥈";
-    else if (i === 2) plaats = "🥉";
+            if (i === 0) plaats = "🥇";
+            else if (i === 1) plaats = "🥈";
+            else if (i === 2) plaats = "🥉";
 
-    html += `
+            html += `
     <tr>
         <td>${plaats}</td>
         <td>${p.name}</td>
@@ -110,7 +112,7 @@ ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
     </tr>
     `;
 
-});
+        });
 
         html += "</table>";
 
@@ -118,6 +120,10 @@ ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
 
     });
 
-};
+}
+
+// Achterwaartse compatibiliteit voor bestaande aanroepen
+window.saveOnlineScore = saveOnlineScore;
+window.loadLeaderboard = loadLeaderboard;
 
 console.log("🔥 Firebase verbonden");

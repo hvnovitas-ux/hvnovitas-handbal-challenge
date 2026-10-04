@@ -1,5 +1,8 @@
+import { saveOnlineScore, loadLeaderboard } from "./firebase.js";
+
 let current = 0;
 let score = 0;
+
 function shuffle(array) {
 
     for (let i = array.length - 1; i > 0; i--) {
@@ -29,7 +32,7 @@ const fill = document.getElementById("fill");
 document.getElementById("startButton").onclick = () => {
     current = 0;
     score = 0;
-    quizQuestions = shuffle([...questions]).slice(0,30);
+    quizQuestions = shuffle([...questions]).slice(0, 30);
 
     startScreen.style.display = "none";
     finishScreen.style.display = "none";
@@ -112,7 +115,9 @@ document.getElementById("next").onclick = () => {
         <h3>${sterren}</h3>
         <p>${bericht}</p>
         <h3>🧡 No Stress, Enjoy!</h3>
-    `; if (score === 30 && typeof confetti === "function") {
+    `;
+
+    if (score === 30 && typeof confetti === "function") {
         confetti({
             particleCount: 250,
             spread: 180,
@@ -121,6 +126,7 @@ document.getElementById("next").onclick = () => {
     }
 
 };
+
 const verbodenWoorden = [
     "fuck",
     "fok",
@@ -133,47 +139,47 @@ const verbodenWoorden = [
     "bitch",
     "nazi"
 ];
-document.getElementById("saveScore").onclick = function () {
+
+document.getElementById("saveScore").onclick = async function () {
 
     let naam = document.getElementById("playerName").value.trim();
 
-naam = naam
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .replace(/\b\w/g, letter => letter.toUpperCase());
+    naam = naam
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .replace(/\b\w/g, letter => letter.toUpperCase());
 
-// Minimaal en maximaal aantal tekens
-if (naam.length < 2 || naam.length > 20) {
-    alert("Naam moet tussen de 2 en 20 tekens bevatten.");
-    return;
-}
-
-// Alleen letters, cijfers, spaties, - en _
-const naamRegex = /^[a-zA-ZÀ-ÿ0-9 _-]+$/;
-
-if (!naamRegex.test(naam)) {
-    alert("Gebruik alleen letters, cijfers, spaties, - en _");
-    return;
-}
-
-// Scheldwoorden blokkeren
-const naamKlein = naam.toLowerCase();
-
-for (const woord of verbodenWoorden) {
-    if (naamKlein.includes(woord)) {
-        alert("Gebruik een nette naam.");
-        return;
-    }
-}
-
-    if (typeof saveOnlineScore !== "function") {
-        alert("Firebase is nog niet verbonden.");
+    // Minimaal en maximaal aantal tekens
+    if (naam.length < 2 || naam.length > 20) {
+        alert("Naam moet tussen de 2 en 20 tekens bevatten.");
         return;
     }
 
-    saveOnlineScore(naam, score);
+    // Alleen letters, cijfers, spaties, - en _
+    const naamRegex = /^[a-zA-ZÀ-ÿ0-9 _-]+$/;
 
-    alert("🏆 Score opgeslagen!");
+    if (!naamRegex.test(naam)) {
+        alert("Gebruik alleen letters, cijfers, spaties, - en _");
+        return;
+    }
+
+    // Scheldwoorden blokkeren
+    const naamKlein = naam.toLowerCase();
+
+    for (const woord of verbodenWoorden) {
+        if (naamKlein.includes(woord)) {
+            alert("Gebruik een nette naam.");
+            return;
+        }
+    }
+
+    try {
+        await saveOnlineScore(naam, score);
+        alert("🏆 Score opgeslagen!");
+    } catch (error) {
+        console.error("Firebase fout bij opslaan score:", error);
+        alert("De score kon niet worden opgeslagen. Controleer de Firebase-database en probeer opnieuw.");
+    }
 
 };
 
@@ -184,9 +190,7 @@ document.getElementById("showLeaderboard").onclick = function () {
     game.style.display = "none";
     leaderboard.style.display = "block";
 
-    if (typeof loadLeaderboard === "function") {
-        loadLeaderboard();
-    }
+    loadLeaderboard();
 
 };
 
@@ -199,9 +203,7 @@ if (showLeaderboard2) {
         finishScreen.style.display = "none";
         leaderboard.style.display = "block";
 
-        if (typeof loadLeaderboard === "function") {
-            loadLeaderboard();
-        }
+        loadLeaderboard();
 
     };
 
@@ -231,4 +233,4 @@ if (backHome2) {
 
 }
 
-console.log("🏆 HV Novitas Quiz v2.0 - Naamfilter actief");
+console.log("🏆 HV Novitas Quiz v2.0 - Firebase module fix");
