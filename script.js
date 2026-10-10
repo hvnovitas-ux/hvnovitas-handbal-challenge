@@ -1,5 +1,14 @@
 import { saveOnlineScore, loadLeaderboard } from "./firebase.js";
 import { questions } from "./questions.js";
+
+const backgroundMusic = new Audio("./audio/quiz-background.mp3");
+backgroundMusic.loop = true;
+backgroundMusic.preload = "none";
+backgroundMusic.volume = 0.20;
+const victoryMusic = new Audio("./audio/quiz-over-80.mp3");
+victoryMusic.preload = "none";
+victoryMusic.volume = 0.55;
+let musicEnabled = true;
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
@@ -49,8 +58,35 @@ const quiz = document.getElementById("quiz");
 const status = document.getElementById("status");
 const vraagnummer = document.getElementById("vraagnummer");
 const fill = document.getElementById("fill");
+const musicToggle = document.getElementById("musicToggle");
+const musicVolume = document.getElementById("musicVolume");
+
+function updateMusicToggle() {
+  if (!musicToggle) return;
+  musicToggle.textContent = musicEnabled ? "♫ Muziek aan" : "♫ Muziek uit";
+  musicToggle.setAttribute("aria-pressed", String(musicEnabled));
+}
+if (musicToggle) musicToggle.onclick = () => {
+  musicEnabled = !musicEnabled;
+  if (!musicEnabled) {
+    backgroundMusic.pause();
+    victoryMusic.pause();
+  } else if (game.style.display !== "none") {
+    backgroundMusic.play().catch(() => {});
+  }
+  updateMusicToggle();
+};
+if (musicVolume) musicVolume.oninput = () => {
+  const level = Number(musicVolume.value) / 100;
+  backgroundMusic.volume = level;
+  victoryMusic.volume = Math.min(0.85, level * 2.75);
+};
+updateMusicToggle();
 
 document.getElementById("startButton").onclick = async () => {
+  victoryMusic.pause();
+  victoryMusic.currentTime = 0;
+  if (musicEnabled) backgroundMusic.play().catch(() => {});
   current = 0;
   score = 0;
   await refreshQuizQuestions();
@@ -78,6 +114,13 @@ document.getElementById("next").onclick = () => {
   if (current < quizQuestions.length) { showQuestion(); return; }
   game.style.display = "none";
   finishScreen.style.display = "block";
+  backgroundMusic.pause();
+  if (score / quizQuestions.length > 0.8 && musicEnabled) {
+    victoryMusic.currentTime = 0;
+    victoryMusic.play().catch(() => {});
+  } else {
+    victoryMusic.pause();
+  }
   let titel = "💪 Rookie", sterren = "⭐☆☆☆☆", bericht = "Blijf trainen, dan haal je de volgende keer meer punten!";
   if (score === quizQuestions.length) { titel = "👑 HV NOVITAS MASTER"; sterren = "⭐⭐⭐⭐⭐"; bericht = "🎉 PERFECT! Je hebt alle vragen goed!"; }
   else if (score >= Math.ceil(quizQuestions.length * .9)) { titel = "🥇 Handbalexpert"; sterren = "⭐⭐⭐⭐☆"; bericht = "Fantastisch! Je kent de handbalregels uitstekend."; }
@@ -102,7 +145,7 @@ document.getElementById("showLeaderboard").onclick = function () {
 };
 const showLeaderboard2 = document.getElementById("showLeaderboard2");
 if (showLeaderboard2) showLeaderboard2.onclick = function () { finishScreen.style.display = "none"; leaderboard.style.display = "block"; loadLeaderboard(); };
-document.getElementById("backHome").onclick = function () { leaderboard.style.display = "none"; finishScreen.style.display = "none"; game.style.display = "none"; startScreen.style.display = "block"; };
+document.getElementById("backHome").onclick = function () { victoryMusic.pause(); backgroundMusic.pause(); leaderboard.style.display = "none"; finishScreen.style.display = "none"; game.style.display = "none"; startScreen.style.display = "block"; };
 const backHome2 = document.getElementById("backHome2");
-if (backHome2) backHome2.onclick = function () { leaderboard.style.display = "none"; finishScreen.style.display = "none"; game.style.display = "none"; startScreen.style.display = "block"; };
+if (backHome2) backHome2.onclick = function () { victoryMusic.pause(); backgroundMusic.pause(); leaderboard.style.display = "none"; finishScreen.style.display = "none"; game.style.display = "none"; startScreen.style.display = "block"; };
 console.log("🏆 HV Novitas Quiz – dynamische vragen");
