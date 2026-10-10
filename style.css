@@ -68,3 +68,47 @@ tr:nth-child(even){background:rgba(255,255,255,.025)}
 @media(max-width:700px){.brand-line{gap:8px;padding-bottom:17px;margin-bottom:22px;font-size:13px}.brand-bolt{width:32px;height:32px;font-size:23px}.brand-tag{font-size:8px;letter-spacing:.1em}.hero-badge{font-size:9px;letter-spacing:.13em}.feature-row{gap:7px}.feature-row span{padding:10px 9px;font-size:10px}.feature-row strong{font-size:9px}.center .levels{font-size:14px}.center .start-note{font-size:12px}}
 
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+
+/* Compacte quizweergave: vraag en antwoorden zoveel mogelijk in één scherm */
+.wrap{min-height:0;padding:clamp(14px,2.2vh,24px) clamp(16px,3vw,34px)}
+.brand-line{padding-bottom:12px;margin-bottom:14px}
+#game{max-width:930px;margin:0 auto}
+.topbar{gap:10px;margin-bottom:10px;font-size:clamp(14px,1.7vw,19px)}
+#status,#vraagnummer{padding:7px 12px}
+.bar{height:9px;margin-bottom:13px}
+#quiz{margin-top:10px}
+#quiz h2{font-size:clamp(18px,2.25vw,27px);line-height:1.2;padding:clamp(11px,1.7vh,18px) clamp(13px,2vw,22px);margin:0 0 10px;overflow-wrap:anywhere;hyphens:auto}
+label{padding:clamp(8px,1.25vh,12px) 14px;margin:6px 0;font-size:clamp(15px,1.55vw,18px);line-height:1.25;gap:10px}
+input[type=radio]{width:17px;height:17px}
+#next{min-height:44px;padding:10px 24px;font-size:17px;margin-top:2px}
+#game br{display:none}
+@media(max-height:800px){
+ body{padding-top:8px;padding-bottom:8px}
+ .wrap{padding-top:14px;padding-bottom:16px}
+ .brand-line{padding-bottom:9px;margin-bottom:10px}
+ .topbar{margin-bottom:7px}
+ .bar{margin-bottom:9px}
+ #quiz{margin-top:7px}
+ #quiz h2{padding-top:10px;padding-bottom:10px;margin-bottom:7px}
+ label{padding-top:7px;padding-bottom:7px;margin:5px 0}
+ #next{min-height:40px}
+}
+@media(max-height:650px){
+ .brand-line{padding-bottom:7px;margin-bottom:8px}
+ .brand-bolt{width:30px;height:30px;font-size:22px}
+ #quiz h2{font-size:18px}
+ .topbar{font-size:14px}
+ #status,#vraagnummer{padding:5px 9px}
+}
+@media(max-width:700px){
+ .wrap{padding:12px 12px 15px}
+ .brand-line{margin-bottom:11px;padding-bottom:10px}
+ .topbar{flex-direction:row;align-items:center;gap:7px;font-size:13px}
+ .topbar>div{text-align:center;flex:1}
+ #status,#vraagnummer{padding:7px 8px}
+ #quiz h2{font-size:clamp(17px,4.5vw,22px);padding:11px 12px}
+ label{font-size:15px;padding:9px 10px;margin:5px 0}
+ #next{float:none;width:100%;margin-top:8px}
+}
+
