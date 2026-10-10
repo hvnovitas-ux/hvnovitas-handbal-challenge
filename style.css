@@ -112,3 +112,11 @@ input[type=radio]{width:17px;height:17px}
  #next{float:none;width:100%;margin-top:8px}
 }
 
+
+
+/* Muziekbediening */
+.music-control{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-left:auto}
+.music-control button{width:auto;min-height:34px;padding:6px 10px;border-radius:9px;font-size:12px;letter-spacing:0;box-shadow:none}
+.music-control input{width:70px;accent-color:var(--orange);cursor:pointer}
+@media(max-width:700px){.topbar{flex-wrap:wrap}.music-control{width:100%;justify-content:center}.music-control button{width:auto;min-height:32px}.music-control input{width:95px}}
+
