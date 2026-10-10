@@ -1,269 +1,48 @@
-```css
-/* ==========================
-   HV NOVITAS HANDBAL CHALLENGE
-========================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-
-    font-family:Arial,Helvetica,sans-serif;
-
-    background:linear-gradient(180deg,#111,#2d2d2d);
-
-    color:#fff;
-
-    min-height:100vh;
-
-    padding:30px;
-
-}
-
-.wrap{
-
-    max-width:900px;
-
-    margin:auto;
-
-    background:#1f1f1f;
-
-    border:3px solid #ff7a00;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    box-shadow:0 0 25px rgba(255,122,0,.35);
-
-}
-
-.center{
-
-    text-align:center;
-
-}
-
-h1{
-
-    color:#ff7a00;
-
-    font-size:48px;
-
-    margin-bottom:15px;
-
-}
-
-h2{
-
-    margin-bottom:15px;
-
-}
-
-h3{
-
-    color:#ff9800;
-
-    margin-bottom:20px;
-
-}
-
-p{
-
-    font-size:20px;
-
-    line-height:1.6;
-
-    margin-bottom:20px;
-
-}
-
-.topbar{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
-
-    font-size:22px;
-
-    color:#ff9800;
-
-}
-
-.bar{
-
-    width:100%;
-
-    height:18px;
-
-    background:#444;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    margin-bottom:25px;
-
-}
-
-#fill{
-
-    width:0;
-
-    height:100%;
-
-    background:linear-gradient(90deg,#ff7a00,#ffd000);
-
-    transition:.4s;
-
-}
-
-#quiz{
-
-    margin-top:20px;
-
-}
-
-label{
-
-    display:block;
-
-    background:#2d2d2d;
-
-    border:2px solid #444;
-
-    border-radius:12px;
-
-    padding:15px;
-
-    margin:12px 0;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-label:hover{
-
-    background:#3b3b3b;
-
-    border-color:#ff7a00;
-
-}
-
-input[type=radio]{
-
-    margin-right:10px;
-
-}
-
-input[type=text]{
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:10px;
-
-    font-size:18px;
-
-}
-
-button{
-
-    background:#ff7a00;
-
-    color:white;
-
-    border:none;
-
-    padding:15px 35px;
-
-    border-radius:10px;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-button:hover{
-
-    background:#ff9800;
-
-    transform:scale(1.04);
-
-}
-
-#finishScreen{
-
-    text-align:center;
-
-}
-
-#leaderboard{
-
-    text-align:center;
-
-}
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    margin-top:20px;
-
-}
-
-td,th{
-
-    padding:12px;
-
-    border-bottom:1px solid #444;
-
-}
-
-th{
-
-    color:#ff9800;
-
-}
-
-@media(max-width:700px){
-
-.topbar{
-
-    flex-direction:column;
-
-    gap:10px;
-
-}
-
-h1{
-
-    font-size:36px;
-
-}
-
-button{
-
-    width:100%;
-
-}
-
-}
-```
+/* HV Novitas Handbal Challenge — premium orange/black redesign */
+:root{color-scheme:dark;--orange:#ff7900;--orange2:#ff9c28;--ink:#070707;--panel:#151515;--line:rgba(255,121,0,.34);--muted:#c7c7c7}
+*{box-sizing:border-box}
+html{min-height:100%;background:#070707}
+body{margin:0;min-height:100vh;padding:clamp(12px,3vw,34px);font-family:Arial,Helvetica,sans-serif;color:#fff;background:radial-gradient(ellipse at 15% 8%,rgba(255,103,0,.2),transparent 31%),radial-gradient(ellipse at 90% 85%,rgba(255,115,0,.14),transparent 32%),linear-gradient(145deg,#050505,#151515 48%,#080808);background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background:repeating-linear-gradient(155deg,transparent 0 100px,rgba(255,118,0,.09) 101px,transparent 103px);z-index:0}
+.wrap{position:relative;isolation:isolate;max-width:1100px;min-height:min(760px,calc(100vh - 68px));margin:0 auto;background:linear-gradient(145deg,rgba(26,26,26,.98),rgba(7,7,7,.99));border:1px solid rgba(255,121,0,.9);border-radius:28px;overflow:hidden;padding:clamp(22px,4vw,58px);box-shadow:0 0 0 5px rgba(255,121,0,.04),0 18px 65px rgba(0,0,0,.55),0 0 44px rgba(255,106,0,.12)}
+.wrap:before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,#ff4c00,#ffbd46,#ff6200);z-index:-1}
+.center{text-align:center;max-width:790px;margin:auto;padding:clamp(14px,3vw,34px) 0}
+.center:before{content:"30 VRAGEN  •  1 UITDAGING";display:inline-flex;align-items:center;justify-content:center;margin:0 auto 26px;padding:9px 18px;border:1px solid rgba(255,141,35,.58);border-radius:999px;background:rgba(255,113,0,.1);color:#ffb064;font-size:clamp(10px,1.5vw,13px);font-weight:900;letter-spacing:.18em}
+h1{margin:0 0 15px;color:#fff;font-size:clamp(42px,7.4vw,82px);font-weight:950;letter-spacing:-.055em;line-height:.98;text-shadow:0 4px 0 #080808,0 0 35px rgba(255,109,0,.16)}
+.center h1{color:var(--orange);text-transform:uppercase}
+h2{font-size:clamp(22px,3.6vw,38px);margin:0 0 18px;line-height:1.12;letter-spacing:.015em}
+.center h2{margin-bottom:23px;font-weight:900;letter-spacing:.1em}
+h3{color:#ff9b2e;font-size:clamp(17px,2.4vw,23px);margin:22px 0}
+p{font-size:clamp(17px,2.1vw,22px);line-height:1.6;color:#e5e5e5;margin:0 auto 22px}
+.center p:nth-of-type(2){display:inline-block;padding:13px 20px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);font-size:clamp(15px,1.9vw,19px);line-height:1.9}
+button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 30px;border:1px solid rgba(255,189,113,.55);border-radius:13px;background:linear-gradient(180deg,#ff9125,#ff6800 75%,#ed5300);color:#fff;font-size:clamp(16px,2vw,21px);font-weight:900;letter-spacing:.015em;cursor:pointer;box-shadow:0 9px 24px rgba(255,91,0,.22);transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+button:hover{filter:brightness(1.09);transform:translateY(-2px);box-shadow:0 13px 30px rgba(255,91,0,.32)}
+button:focus-visible,input:focus-visible,label:focus-within{outline:3px solid #ffd08a;outline-offset:3px}
+#startButton{min-width:min(300px,100%);min-height:66px;font-size:clamp(19px,2.6vw,25px);border-radius:16px}
+#showLeaderboard,#showLeaderboard2{background:linear-gradient(180deg,#282828,#171717);border-color:rgba(255,121,0,.65);box-shadow:none}
+#showLeaderboard:hover,#showLeaderboard2:hover{background:#2a2018;box-shadow:0 0 24px rgba(255,121,0,.15)}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:0 0 18px;color:#ffae58;font-size:clamp(16px,2vw,22px);font-weight:900}
+#status,#vraagnummer{padding:10px 15px;border-radius:12px;background:#202020;border:1px solid rgba(255,121,0,.25)}
+.bar{width:100%;height:12px;background:#303030;border-radius:999px;overflow:hidden;margin-bottom:30px;border:1px solid #414141}
+#fill{width:0;height:100%;background:linear-gradient(90deg,#ff5e00,#ffb234);transition:width .35s ease;border-radius:999px;box-shadow:0 0 15px rgba(255,121,0,.45)}
+#quiz{margin-top:22px}
+#quiz h2{padding:clamp(20px,3vw,32px);background:linear-gradient(145deg,#242424,#151515);border:1px solid rgba(255,121,0,.3);border-left:5px solid var(--orange);border-radius:15px}
+label{display:flex;align-items:center;gap:12px;background:linear-gradient(110deg,#202020,#171717);border:1px solid #383838;border-radius:13px;padding:16px 18px;margin:12px 0;font-size:clamp(16px,1.9vw,20px);line-height:1.4;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+label:hover{background:#292018;border-color:var(--orange);transform:translateX(3px)}
+label:has(input:checked){background:rgba(255,121,0,.13);border-color:var(--orange);box-shadow:inset 0 0 0 1px rgba(255,121,0,.22)}
+input[type=radio]{accent-color:var(--orange);width:19px;height:19px;flex:0 0 auto}
+#next{min-width:190px;float:right}
+#game:after{content:"";display:block;clear:both}
+#finishScreen,#leaderboard{text-align:center}
+#finalScore{padding:clamp(22px,4vw,42px) 10px;background:radial-gradient(ellipse at top,rgba(255,121,0,.13),transparent 60%);border-radius:20px}
+#finalScore h1{color:var(--orange);margin:16px 0}
+input[type=text]{display:block;width:min(480px,100%);margin:14px auto;padding:16px 18px;border:1px solid #4a4a4a;border-radius:12px;background:#111;color:#fff;font-size:18px}
+input[type=text]::placeholder{color:#999}
+#leaderboard h1{font-size:clamp(33px,5vw,54px);margin-bottom:28px}
+#leaderboardList{color:#eee;text-align:left;background:#121212;border:1px solid #333;border-radius:15px;padding:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-top:10px;min-width:290px}
+td,th{padding:14px 12px;border-bottom:1px solid #333;text-align:left}
+th{color:#ffad4d;background:#20170f}
+tr:nth-child(even){background:rgba(255,255,255,.025)}
+@media(max-width:700px){body{padding:10px}.wrap{min-height:calc(100vh - 20px);border-radius:19px;padding:22px 16px}.center{padding:16px 0}.center:before{letter-spacing:.1em;padding:8px 12px;margin-bottom:22px}.topbar{flex-direction:column;align-items:stretch;gap:8px}.topbar>div{text-align:center}button{width:100%;padding:15px 18px}#startButton{min-width:0}#next{float:none;margin-top:8px}label{padding:14px;font-size:16px}.center p:nth-of-type(2){display:block}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
