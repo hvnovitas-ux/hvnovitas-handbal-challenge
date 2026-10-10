@@ -1,4 +1,5 @@
 import { saveOnlineScore, loadLeaderboard } from "./firebase.js";
+import { questions } from "./questions.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
