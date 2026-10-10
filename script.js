@@ -83,6 +83,24 @@ if (musicVolume) musicVolume.oninput = () => {
 };
 updateMusicToggle();
 
+// Muziek staat standaard AAN. Probeer direct te starten; als de browser
+// autoplay blokkeert, start de muziek bij de eerste normale gebruikersactie.
+// De expliciete muziekknop/slideregelaar starten de muziek niet per ongeluk.
+function tryStartDefaultMusic(event) {
+  if (event?.target?.closest?.("#musicToggle, #musicVolume")) return;
+  if (!musicEnabled || !backgroundMusic.paused) return;
+  const attempt = backgroundMusic.play();
+  if (attempt && typeof attempt.then === "function") {
+    attempt.then(() => {
+      document.removeEventListener("pointerdown", tryStartDefaultMusic);
+      document.removeEventListener("keydown", tryStartDefaultMusic);
+    }).catch(() => {});
+  }
+}
+document.addEventListener("pointerdown", tryStartDefaultMusic);
+document.addEventListener("keydown", tryStartDefaultMusic);
+tryStartDefaultMusic();
+
 document.getElementById("startButton").onclick = async () => {
   victoryMusic.pause();
   victoryMusic.currentTime = 0;
