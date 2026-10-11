@@ -1,10 +1,10 @@
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getDatabase, ref, onValue, push, set, update, remove } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 import { questions as originalQuestions } from "./questions.js";
 
-// Gebruik dezelfde Firebase Auth als het Novitas-CMS, maar toon de login hier.
-// Er is bewust geen redirect naar /cms/login.html.
+// Authenticatie gebruikt hetzelfde Firebase-project als het Novitas-CMS.
+// De quizvragen zelf blijven in de Handbalchallenge-database staan.
 const cmsConfig = {
   apiKey: "AIzaSyDWYYS09i4YN9tnCmAzeiicD9T4YZ3a6HE",
   authDomain: "hv-novitas-beheer.firebaseapp.com",
@@ -23,9 +23,11 @@ const challengeConfig = {
   messagingSenderId: "707710141199",
   appId: "1:707710141199:web:ba304ce4e5f653d0afb47a"
 };
-const authApp = getApps().find(a => a.name === "novitasCmsAuth") || initializeApp(cmsConfig, "novitasCmsAuth");
-const challengeApp = getApps().find(a => a.name === "novitasChallengeAdmin") || initializeApp(challengeConfig, "novitasChallengeAdmin");
+const authApp = getApps().find(app => app.name === "novitasCmsAuth") || initializeApp(cmsConfig, "novitasCmsAuth");
+const challengeApp = getApps().find(app => app.name === "novitasChallengeAdmin") || initializeApp(challengeConfig, "novitasChallengeAdmin");
 const auth = getAuth(authApp);
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 const db = getDatabase(challengeApp);
 const $ = id => document.getElementById(id);
 let questions = [];
@@ -73,7 +75,8 @@ function editQuestion(id) {
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function beginAdmin(user) {
-  currentUser = user; $("loginPanel").hidden = true; $("adminArea").hidden = false;
+  currentUser = user;
+  $("loginPanel").hidden = true; $("adminArea").hidden = false;
   $("userInfo").textContent = "Ingelogd: " + (user.displayName || user.email || "beheerder");
   if (unsubscribe) unsubscribe();
   unsubscribe = onValue(ref(db,"questions"), snap => {
@@ -83,24 +86,27 @@ function beginAdmin(user) {
   });
 }
 function showLogin() {
-  currentUser = null; if (unsubscribe) { unsubscribe(); unsubscribe = null; }
-  $("loginPanel").hidden = false; $("adminArea").hidden = true; $("userInfo").textContent = "Niet ingelogd";
+  currentUser = null;
+  if (unsubscribe) { unsubscribe(); unsubscribe = null; }
+  $("loginPanel").hidden = false; $("adminArea").hidden = true;
+  $("userInfo").textContent = "Niet ingelogd";
 }
-$("loginForm").addEventListener("submit", async e => {
-  e.preventDefault(); $("loginButton").disabled = true; say("Inloggen…");
+$("googleLoginButton").addEventListener("click", async () => {
+  $("googleLoginButton").disabled = true;
+  say("Google-login openen…");
   try {
-    const credential = await signInWithEmailAndPassword(auth, $("loginEmail").value.trim(), $("loginPassword").value);
-    beginAdmin(credential.user); say("Je bent ingelogd.");
+    await signInWithPopup(auth, provider);
+    say("Ingelogd. De vragen worden geladen.");
   } catch (err) {
     console.error(err);
     const messages = {
-      "auth/invalid-credential":"E-mailadres of wachtwoord klopt niet.",
-      "auth/invalid-email":"Vul een geldig e-mailadres in.",
-      "auth/too-many-requests":"Te veel pogingen. Probeer het later opnieuw.",
+      "auth/popup-closed-by-user":"Het Google-inlogvenster is gesloten voordat je klaar was.",
+      "auth/popup-blocked":"Je browser blokkeerde het Google-inlogvenster. Sta pop-ups toe en probeer opnieuw.",
+      "auth/unauthorized-domain":"Deze GitHub Pages-site moet nog worden toegevoegd aan de toegestane domeinen van Firebase Authentication.",
       "auth/network-request-failed":"Geen verbinding. Controleer je internet."
     };
-    say(messages[err.code] || ("Inloggen mislukt ("+err.code+"). Controleer je CMS-account."), true);
-  } finally { $("loginButton").disabled = false; }
+    say(messages[err.code] || ("Google-inloggen is niet gelukt ("+(err.code || "onbekende fout")+")."), true);
+  } finally { $("googleLoginButton").disabled = false; }
 });
 onAuthStateChanged(auth, user => user ? beginAdmin(user) : showLogin());
 $("logoutButton").addEventListener("click", async () => {
@@ -108,7 +114,7 @@ $("logoutButton").addEventListener("click", async () => {
   catch (err) { console.error(err); say("Uitloggen mislukt.", true); }
 });
 $("questionForm").addEventListener("submit", async e => {
-  e.preventDefault(); if (!currentUser) { say("Log eerst in.", true); return; }
+  e.preventDefault(); if (!currentUser) { say("Log eerst in met Google.", true); return; }
   const q = $("questionText").value.trim();
   const a = [0,1,2,3].map(i => $("answer"+i).value.trim());
   const correct = document.querySelector('input[name="correct"]:checked');
@@ -119,7 +125,7 @@ $("questionForm").addEventListener("submit", async e => {
     if (id) { await update(ref(db,"questions/"+id),payload); say("Vraag aangepast."); }
     else { payload.createdAt=Date.now(); await set(push(ref(db,"questions")),payload); say("Nieuwe vraag toegevoegd."); }
     resetForm();
-  } catch (err) { console.error(err); say("Opslaan mislukt. Controleer of de challenge-database schrijven toestaat.", true); }
+  } catch (err) { console.error(err); say("Opslaan mislukt. Controleer of de challenge-database schrijven toestaat.",true); }
   finally { $("saveButton").disabled = false; }
 });
 $("questionList").addEventListener("click", async e => {
@@ -129,14 +135,14 @@ $("questionList").addEventListener("click", async e => {
     const q = questions.find(item=>item.id===del.dataset.delete);
     if (!q || !confirm("Vraag verwijderen?\n\n"+q.q)) return;
     try { await remove(ref(db,"questions/"+q.id)); say("Vraag verwijderd."); if ($("questionId").value===q.id) resetForm(); }
-    catch (err) { console.error(err); say("Verwijderen mislukt. Controleer de challenge-database-regels.", true); }
+    catch (err) { console.error(err); say("Verwijderen mislukt. Controleer de challenge-database-regels.",true); }
   }
 });
 $("cancelEdit").addEventListener("click",resetForm);
 $("searchInput").addEventListener("input",render);
 $("refreshButton").addEventListener("click",render);
 $("importButton").addEventListener("click",async()=>{
-  if (!currentUser) { say("Log eerst in.",true); return; }
+  if (!currentUser) { say("Log eerst in met Google.",true); return; }
   if (!Array.isArray(originalQuestions)||!originalQuestions.length) { say("Geen quizvragen gevonden.",true); return; }
   if (questions.length&&!confirm("Er staan al "+questions.length+" vragen in de database. Alleen ontbrekende vraagteksten worden toegevoegd. Doorgaan?")) return;
   $("importButton").disabled=true;
