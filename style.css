@@ -120,3 +120,7 @@ input[type=radio]{width:17px;height:17px}
 .music-control input{width:70px;accent-color:var(--orange);cursor:pointer}
 @media(max-width:700px){.topbar{flex-wrap:wrap}.music-control{width:100%;justify-content:center}.music-control button{width:auto;min-height:32px}.music-control input{width:95px}}
 
+
+
+/* Fotovragen */
+.vraag-foto{display:block;width:auto;max-width:100%;max-height:340px;object-fit:contain;margin:0 auto 18px;border-radius:12px;box-shadow:0 6px 20px #0002}
