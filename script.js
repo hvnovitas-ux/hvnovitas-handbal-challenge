@@ -27,6 +27,20 @@ const questionDb = getDatabase(questionApp);
 let current = 0;
 let score = 0;
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[ch]));
+}
+function validImageUrl(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return (url.protocol === "https:" || url.protocol === "http:") && Boolean(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -36,14 +50,14 @@ function shuffle(array) {
 }
 
 let quizQuestions = [];
-let loadedQuestions = [...questions];
+let loadedQuestions = questions.map(q => ({ ...q, imageUrl: validImageUrl(q.imageUrl) ? q.imageUrl : "" }));
 
 async function refreshQuizQuestions() {
   try {
     const snapshot = await get(ref(questionDb, "questions"));
     if (snapshot.exists()) {
       const rows = Object.values(snapshot.val()).filter(q => q && typeof q.q === "string" && Array.isArray(q.a) && q.a.length >= 4 && Number.isInteger(Number(q.c)));
-      if (rows.length) loadedQuestions = rows.map(q => ({ q: q.q, a: q.a.slice(0, 4).map(String), c: Number(q.c) }));
+      if (rows.length) loadedQuestions = rows.map(q => ({ q: q.q, a: q.a.slice(0, 4).map(String), c: Number(q.c), imageUrl: validImageUrl(q.imageUrl) ? String(q.imageUrl) : "" }));
     }
   } catch (error) {
     console.warn("Databasevragen niet beschikbaar; standaardvragen blijven actief.", error);
@@ -121,7 +135,8 @@ function showQuestion() {
   status.textContent = "🏆 Score: " + score;
   vraagnummer.textContent = "Vraag " + (current + 1) + " / " + quizQuestions.length;
   fill.style.width = ((current / quizQuestions.length) * 100) + "%";
-  quiz.innerHTML = `<h2>${q.q}</h2>${q.a.map((antwoord, index) => `<label class="antwoord"><input type="radio" name="antwoord" value="${index}"> ${antwoord}</label>`).join("")}`;
+  const foto = validImageUrl(q.imageUrl) ? `<img class="vraag-foto" src="${escapeHtml(q.imageUrl)}" alt="Foto bij de handbalvraag" loading="lazy">` : "";
+  quiz.innerHTML = `${foto}<h2>${escapeHtml(q.q)}</h2>${q.a.map((antwoord, index) => `<label class="antwoord"><input type="radio" name="antwoord" value="${index}"> ${escapeHtml(antwoord)}</label>`).join("")}`;
 }
 
 document.getElementById("next").onclick = () => {
