@@ -8,8 +8,8 @@
 header{background:#ff6a00;color:white;padding:16px 22px;font-weight:bold;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 main{width:min(1120px,calc(100% - 28px));margin:24px auto}.panel{background:white;padding:20px;border-radius:14px;margin-bottom:18px;box-shadow:0 4px 16px #0000000d}
 h1{margin:0 0 8px}h2{margin:0 0 12px}.muted{color:#67717e}button,.linkbtn{border:0;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer;background:#ff6a00;color:white;text-decoration:none;display:inline-block}
-button.secondary,.linkbtn.secondary{background:#e9edf1;color:#222}button.danger{background:#b42318}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}
-input[type=text],input[type=email],input[type=password],textarea{width:100%;padding:11px;border:1px solid #cbd1d8;border-radius:8px;font:inherit}
+button:disabled{opacity:.6;cursor:wait}button.secondary,.linkbtn.secondary{background:#e9edf1;color:#222}button.danger{background:#b42318}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}
+input[type=text],textarea{width:100%;padding:11px;border:1px solid #cbd1d8;border-radius:8px;font:inherit}
 textarea{min-height:80px;resize:vertical}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #e4e7eb;padding:12px;border-radius:10px}
 .answer label{display:flex;align-items:center;gap:6px;font-size:14px;margin-bottom:8px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .toolbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}.toolbar input{flex:1;min-width:180px}.qcard{border:1px solid #e4e7eb;border-radius:12px;padding:14px;margin:12px 0}
@@ -24,16 +24,13 @@ textarea{min-height:80px;resize:vertical}.answers{display:grid;grid-template-col
 <section class="panel">
 <div class="actions" style="margin-top:0"><a class="linkbtn secondary" href="index.html">← Naar de quiz</a></div>
 <h1>Handbalchallenge beheren</h1>
-<p class="muted">Log in met je bestaande Novitas-CMS-account. Je wordt niet doorgestuurd naar de algemene CMS-loginpagina.</p>
-<p id="message" role="status">Log in om verder te gaan.</p>
+<p class="muted">Log in met dezelfde Google-account als bij het Novitas-CMS. De quizvragen blijven in de Handbalchallenge-database.</p>
+<p id="message" role="status">Log in met Google om verder te gaan.</p>
 </section>
 <section class="panel" id="loginPanel">
-<h2>🔐 Inloggen</h2>
-<form id="loginForm">
-<div class="field"><label for="loginEmail"><strong>E-mailadres</strong></label><input type="email" id="loginEmail" autocomplete="username" required placeholder="jouw e-mailadres"></div>
-<div class="field"><label for="loginPassword"><strong>Wachtwoord</strong></label><input type="password" id="loginPassword" autocomplete="current-password" required placeholder="Wachtwoord"></div>
-<div class="actions"><button id="loginButton" type="submit">Inloggen</button></div>
-</form>
+<h2>🔐 Inloggen met Google</h2>
+<p class="muted">Gebruik je bestaande Novitas-CMS Google-account. Je hebt geen apart wachtwoord nodig.</p>
+<div class="actions"><button id="googleLoginButton" type="button">Inloggen met Google</button></div>
 </section>
 <div id="adminArea" hidden>
 <section class="panel"><div class="actions" style="margin-top:0"><button id="logoutButton" class="secondary" type="button">Uitloggen</button></div>
