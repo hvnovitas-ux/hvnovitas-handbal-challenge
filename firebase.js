@@ -47,15 +47,13 @@ export function loadLeaderboard() {
 
         let scores = [];
 
-        const huidigeMaand = new Date().toISOString().substring(0, 7);
+        // Toon de volledige ranglijst: alle opgeslagen scores, ongeacht de maand.
 
         snapshot.forEach((item) => {
 
             const score = item.val();
 
-            if (score.month === huidigeMaand) {
-                scores.push(score);
-            }
+            scores.push(score);
 
         });
 
@@ -80,13 +78,13 @@ export function loadLeaderboard() {
         const hoogsteScore = scores.length > 0 ? scores[0].score : 0;
 
         let html = `
-<h2>🏆 HV NOVITAS MAANDRANGLIJST</h2>
+<h2>🏆 HV NOVITAS ALLER-TIJDEN RANGLIJST</h2>
 
 <p><strong>👑 Hoogste score: ${hoogsteScore} / 30</strong></p>
 
 ${hoogsteScore === 30 ? "<p>🔥 Perfecte score!</p>" : ""}
 
-<p><strong>👥 Deelnemers deze maand: ${scores.length}</strong></p>
+<p><strong>👥 Deelnemers ooit: ${scores.length}</strong></p>
 
 <table>
     <tr>
