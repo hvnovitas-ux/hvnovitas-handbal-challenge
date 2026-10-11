@@ -1,4 +1,4 @@
-import { saveOnlineScore, loadLeaderboard } from "./firebase.js";
+import { saveOnlineScore, loadLeaderboard } from "./firebase.js?v=20261011-alltime";
 import { questions } from "./questions.js";
 
 const backgroundMusic = new Audio("./audio/quiz-background.mp3");
