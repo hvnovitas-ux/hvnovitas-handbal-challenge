@@ -15,7 +15,7 @@ const cmsConfig = {
   appId: "1:71716605241:web:b7e87d680b7499421a6ce8"
 };
 const challengeConfig = {
-  apiKey: "AIzaSyBCUZeWMIxIz__7TfNG_b0V47H_pYFPyQ",
+  apiKey: "AIzaSyBCUZeWMIxIz__7TfNG_b0V47H_pYFPyqQ",
   authDomain: "hv-novitas-handbal-challenge.firebaseapp.com",
   databaseURL: "https://hv-novitas-handbal-challenge-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "hv-novitas-handbal-challenge",
