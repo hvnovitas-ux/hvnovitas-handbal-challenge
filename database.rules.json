@@ -1,0 +1,32 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "questions": {
+      ".read": true,
+      ".write": "auth != null && auth.token.email === 'hvnovitas@gmail.com' && auth.token.email_verified === true"
+    },
+    "scores": {
+      ".read": true,
+      "$scoreId": {
+        ".write": "!data.exists() && newData.exists()",
+        ".validate": "newData.hasChildren(['name', 'score', 'month', 'created'])",
+        "name": {
+          ".validate": "newData.isString() && newData.val().matches(/^[A-Za-zÀ-ÿ0-9 _-]{2,20}$/)"
+        },
+        "score": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 30"
+        },
+        "month": {
+          ".validate": "newData.isString() && newData.val().matches(/^[0-9]{4}-(0[1-9]|1[0-2])$/)"
+        },
+        "created": {
+          ".validate": "newData.isNumber() && newData.val() > 0 && newData.val() <= now + 300000"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
